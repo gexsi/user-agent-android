@@ -20,7 +20,7 @@ import static org.gradle.api.tasks.testing.TestResult.ResultType
 android {
     compileSdkVersion Config.compileSdkVersion
     defaultConfig {
-        applicationId "org.mozilla"
+        applicationId "com.sst"
         minSdkVersion Config.minSdkVersion
         targetSdkVersion Config.targetSdkVersion
         versionCode 1
@@ -64,38 +64,14 @@ android {
         debug {
             shrinkResources false
             minifyEnabled false
-            applicationIdSuffix ".fenix.debug"
+            applicationIdSuffix ".sealegacy.blue.debug"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled true
         }
-        nightly releaseTemplate >> {
-            applicationIdSuffix ".fenix"
-            buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            def deepLinkSchemeValue = "fenix-nightly"
-            buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
-            manifestPlaceholders = ["deepLinkScheme": deepLinkSchemeValue]
-        }
-        beta releaseTemplate >> {
-            buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".firefox_beta"
-            def deepLinkSchemeValue = "fenix-beta"
-            buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
-            manifestPlaceholders = [
-                    // This release type is meant to replace Firefox (Beta channel) and therefore needs to inherit
-                    // its sharedUserId for all eternity. See:
-                    // https://searchfox.org/mozilla-central/search?q=moz_android_shared_id&case=false&regexp=false&path=
-                    // Shipping an app update without sharedUserId can have
-                    // fatal consequences. For example see:
-                    //  - https://issuetracker.google.com/issues/36924841
-                    //  - https://issuetracker.google.com/issues/36905922
-                    "sharedUserId": "org.mozilla.firefox.sharedID",
-                    "deepLinkScheme": deepLinkSchemeValue
-            ]
-        }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".firefox"
-            def deepLinkSchemeValue = "fenix"
+            applicationIdSuffix ".sealegacy.blue"
+            def deepLinkSchemeValue = "sealegacy.blue"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders = [
                     // This release type is meant to replace Firefox (Release channel) and therefore needs to inherit
@@ -137,13 +113,6 @@ android {
         }
         debug {
             java.srcDirs = ['src/geckoNightly/java']
-        }
-        nightly {
-            java.srcDirs = ['src/geckoNightly/java']
-        }
-        beta {
-            java.srcDirs = ['src/migration/java', 'src/geckoBeta/java']
-            manifest.srcFile "src/migration/AndroidManifest.xml"
         }
         release {
             java.srcDirs = ['src/migration/java', 'src/geckoRelease/java']
@@ -360,8 +329,6 @@ dependencies {
 
     debugImplementation Deps.mozilla_browser_engine_gecko_nightly
 
-    nightlyImplementation Deps.mozilla_browser_engine_gecko_nightly
-    betaImplementation Deps.mozilla_browser_engine_gecko_beta
     releaseImplementation Deps.mozilla_browser_engine_gecko_release
 
     implementation Deps.kotlin_stdlib
