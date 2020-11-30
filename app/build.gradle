@@ -212,6 +212,8 @@ android.applicationVariants.all { variant ->
 // -------------------------------------------------------------------------------------------------
 
     buildConfigField 'String', 'SENTRY_TOKEN', 'null'
+
+    /* Gexsi begin: disable telemetry and crash reporter
     if (!isDebug) {
         buildConfigField 'boolean', 'CRASH_REPORTING', 'true'
         // Reading sentry token from local file (if it exists). In a release task on taskcluster it will be available.
@@ -228,6 +230,10 @@ android.applicationVariants.all { variant ->
     } else {
         buildConfigField 'boolean', 'TELEMETRY', 'false'
     }
+    */
+    buildConfigField 'boolean', 'CRASH_REPORTING', 'false'
+    buildConfigField 'boolean', 'TELEMETRY', 'false'
+    // Gexsi end
 
     def buildDate = Config.generateBuildDate()
     // Setting buildDate with every build changes the generated BuildConfig, which slows down the

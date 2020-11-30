@@ -26,8 +26,12 @@ import mozilla.components.concept.push.PushProcessor
 import mozilla.components.feature.addons.update.GlobalAddonDependencyProvider
 import mozilla.components.lib.crash.CrashReporter
 import mozilla.components.service.glean.Glean
-import mozilla.components.service.glean.config.Configuration
-import mozilla.components.service.glean.net.ConceptFetchHttpUploader
+
+// Gexsi begin: disable telemetry
+//import mozilla.components.service.glean.config.Configuration
+//import mozilla.components.service.glean.net.ConceptFetchHttpUploader
+// Gexsi end
+
 import mozilla.components.support.base.log.Log
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.android.content.isMainProcess
@@ -79,6 +83,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             return
         }
 
+        /* Gexsi Begin: do not initialise Glean
         if (Config.channel.isFenix) {
             // We need to always initialize Glean and do it early here.
             // Note that we are only initializing Glean here for "fenix" builds. "fennec" builds
@@ -86,10 +91,12 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             // user's choice from Fennec.
             initializeGlean()
         }
+        Gexsi end */
 
         setupInMainProcessOnly()
     }
 
+    /* Gexsi Begin: do not use Glean
     protected open fun initializeGlean() {
         val telemetryEnabled = settings().isTelemetryEnabled
 
@@ -105,6 +112,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             uploadEnabled = telemetryEnabled
         )
     }
+    Gexsi end */
 
     @CallSuper
     open fun setupInAllProcesses() {
@@ -266,10 +274,12 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
     }
 
     private fun setupCrashReporting() {
+        /* Gexsi Begin: do not report crashes to Mozilla
         components
             .analytics
             .crashReporter
             .install(this)
+        Gexsi end */
     }
 
     /**
