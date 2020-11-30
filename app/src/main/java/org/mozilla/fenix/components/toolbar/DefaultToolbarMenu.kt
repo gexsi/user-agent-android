@@ -11,6 +11,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import mozilla.components.browser.menu.BrowserMenuBuilder
 import mozilla.components.browser.menu.BrowserMenuHighlight
 import mozilla.components.browser.menu.WebExtensionBrowserMenuBuilder
 import mozilla.components.browser.menu.item.BrowserMenuDivider
@@ -63,6 +64,12 @@ class DefaultToolbarMenu(
     private val session: Session? get() = sessionManager.selectedSession
 
     override val menuBuilder by lazy {
+        // Gexsi Begin: removing add-ons from the default menu
+        BrowserMenuBuilder(
+                menuItems,
+                endOfMenuAlwaysVisible = !shouldReverseItems
+        )
+        /* Gexsi begin: no web extensions
         WebExtensionBrowserMenuBuilder(
             menuItems,
             endOfMenuAlwaysVisible = !shouldReverseItems,
@@ -73,6 +80,7 @@ class DefaultToolbarMenu(
             },
             appendExtensionSubMenuAtStart = !shouldReverseItems
         )
+        Gexsi End */
     }
 
     override val menuToolbar by lazy {

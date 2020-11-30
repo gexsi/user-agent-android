@@ -116,6 +116,7 @@ class HomeMenu(
             onItemTapped.invoke(Item.History)
         }
 
+        /* Gexsi begin: disable addons
         val addons = BrowserMenuImageText(
             context.getString(R.string.browser_menu_add_ons),
             R.drawable.ic_addons_extensions,
@@ -123,6 +124,7 @@ class HomeMenu(
         ) {
             onItemTapped.invoke(Item.AddonsManager)
         }
+        Gexsi end */
 
         val settingsItem = BrowserMenuImageText(
             context.getString(R.string.browser_menu_settings),
@@ -157,6 +159,7 @@ class HomeMenu(
             onItemTapped.invoke(Item.Downloads)
         }
 
+        /* Gexsi begin: disable account authentication
         // Only query account manager if it has been initialized.
         // We don't want to cause its initialization just for this check.
         val accountAuthItem = if (context.components.backgroundServices.accountManagerAvailableQueue.isReady()) {
@@ -164,6 +167,7 @@ class HomeMenu(
         } else {
             null
         }
+        Gexsi end */
 
         val settings = context.components.settings
 
@@ -180,11 +184,16 @@ class HomeMenu(
             historyItem,
             downloadsItem,
             BrowserMenuDivider(),
-            addons,
-            BrowserMenuDivider(),
+
+            // Gexsi begin: disable addons
+//            addons,
+//            BrowserMenuDivider(),
+            // Gexsi end
             whatsNewItem,
             helpItem,
-            accountAuthItem
+            // Gexsi begin: disable addons
+//            accountAuthItem
+            // Gexsi end
         ).also { items ->
             items.getHighlight()?.let { onHighlightPresent(it) }
         }
