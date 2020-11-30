@@ -23,6 +23,7 @@ class PrivateBrowsingDescriptionViewHolder(
         view.private_session_description.text = resources.getString(
             R.string.private_browsing_placeholder_description_2, appName
         )
+        /* Gexsi begin: disable common myths about private tabs
         with(view.private_session_common_myths) {
             movementMethod = LinkMovementMethod.getInstance()
             addUnderline()
@@ -30,6 +31,7 @@ class PrivateBrowsingDescriptionViewHolder(
                 interactor.onPrivateBrowsingLearnMoreClicked()
             }
         }
+        Gexsi end */
     }
 
     companion object {

@@ -134,15 +134,17 @@ class HomeMenu(
             onItemTapped.invoke(Item.Settings)
         }
 
-        // Gexsi begin: disable authentication
-        /* val syncedTabsItem = BrowserMenuImageText(
+        /* Gexsi begin: disable authentication
+        val syncedTabsItem = BrowserMenuImageText(
             context.getString(R.string.library_synced_tabs),
             R.drawable.ic_synced_tabs,
             primaryTextColor
         ) {
             onItemTapped.invoke(Item.SyncedTabs)
-        } */
+        }
+        Gexsi end */
 
+        /* Gexsi begin: disable help
         val helpItem = BrowserMenuImageText(
             context.getString(R.string.browser_menu_help),
             R.drawable.ic_help,
@@ -150,6 +152,7 @@ class HomeMenu(
         ) {
             onItemTapped.invoke(Item.Help)
         }
+        Gexsi end */
 
         val downloadsItem = BrowserMenuImageText(
             context.getString(R.string.library_downloads),
@@ -190,8 +193,8 @@ class HomeMenu(
 //            BrowserMenuDivider(),
             // Gexsi end
             whatsNewItem,
-            helpItem,
-            // Gexsi begin: disable addons
+            // Gexsi begin: disable help and account
+//            helpItem,
 //            accountAuthItem
             // Gexsi end
         ).also { items ->
