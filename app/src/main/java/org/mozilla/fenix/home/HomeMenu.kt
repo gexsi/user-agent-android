@@ -39,7 +39,11 @@ class HomeMenu(
         object Help : Item()
         object AddonsManager : Item()
         object Settings : Item()
-        object SyncedTabs : Item()
+
+        // Gexsi begin: disable authentication
+//        object SyncedTabs : Item()
+        // Gexsi end
+
         object History : Item()
         object Bookmarks : Item()
         object Downloads : Item()
@@ -128,13 +132,14 @@ class HomeMenu(
             onItemTapped.invoke(Item.Settings)
         }
 
-        val syncedTabsItem = BrowserMenuImageText(
+        // Gexsi begin: disable authentication
+        /* val syncedTabsItem = BrowserMenuImageText(
             context.getString(R.string.library_synced_tabs),
             R.drawable.ic_synced_tabs,
             primaryTextColor
         ) {
             onItemTapped.invoke(Item.SyncedTabs)
-        }
+        } */
 
         val helpItem = BrowserMenuImageText(
             context.getString(R.string.browser_menu_help),
@@ -166,7 +171,11 @@ class HomeMenu(
             if (settings.shouldDeleteBrowsingDataOnQuit) quitItem else null,
             settingsItem,
             BrowserMenuDivider(),
-            if (settings.syncedTabsInTabsTray) null else syncedTabsItem,
+
+            // Gexsi begin: disable sync tabs
+//            if (settings.syncedTabsInTabsTray) null else syncedTabsItem,
+            // Gexsi end
+
             bookmarksItem,
             historyItem,
             downloadsItem,

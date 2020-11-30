@@ -180,14 +180,20 @@ class DefaultToolbarMenu(
             ?.browsingModeManager?.mode == BrowsingMode.Normal
         val shouldDeleteDataOnQuit = context.components.settings
             .shouldDeleteBrowsingDataOnQuit
-        val syncedTabsInTabsTray = context.components.settings
-            .syncedTabsInTabsTray
+
+        // Gexsi begin: disable sync tabs
+//        val syncedTabsInTabsTray = context.components.settings.syncedTabsInTabsTray
+        // Gexsi end
 
         val menuItems = listOfNotNull(
             downloadsItem,
             historyItem,
             bookmarksItem,
-            if (syncedTabsInTabsTray) null else syncedTabs,
+
+            // Gexsi begin: disable sync tabs
+//            if (syncedTabsInTabsTray) null else syncedTabs,
+            // Gexsi end
+
             settings,
             if (shouldDeleteDataOnQuit) deleteDataOnQuit else null,
             BrowserMenuDivider(),
@@ -256,6 +262,7 @@ class DefaultToolbarMenu(
         onItemTapped.invoke(ToolbarMenu.Item.AddToHomeScreen)
     }
 
+    /* Gexsi begin: disable sync tabs
     private val syncedTabs = BrowserMenuImageText(
         label = context.getString(R.string.synced_tabs),
         imageResource = R.drawable.ic_synced_tabs,
@@ -263,6 +270,7 @@ class DefaultToolbarMenu(
     ) {
         onItemTapped.invoke(ToolbarMenu.Item.SyncedTabs)
     }
+    Gexsi end */
 
     private val installToHomescreen = BrowserMenuHighlightableItem(
         label = context.getString(R.string.browser_menu_install_on_homescreen),

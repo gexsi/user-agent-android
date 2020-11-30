@@ -62,10 +62,12 @@
             android:key="@string/pref_key_customize"
             android:title="@string/preferences_customize" />
 
+        <!-- Gexsi begin: disable logins and password -+>
         <androidx.preference.Preference
             android:icon="@drawable/ic_login"
             android:key="@string/pref_key_passwords"
             android:title="@string/preferences_passwords_logins_and_passwords" />
+        <+- Gexsi end -->
 
         <androidx.preference.Preference
             android:icon="@drawable/ic_accessibility"

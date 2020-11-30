@@ -27,7 +27,11 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
 
         requirePreference<SwitchPreference>(R.string.pref_key_synced_tabs_tabs_tray).apply {
             isVisible = FeatureFlags.syncedTabsInTabsTray
-            isChecked = context.settings().syncedTabsInTabsTray
+
+            // Gexsi begin: disable sync tabs
+            isChecked = false //context.settings().syncedTabsInTabsTray
+            // Gexsi end
+
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
     }

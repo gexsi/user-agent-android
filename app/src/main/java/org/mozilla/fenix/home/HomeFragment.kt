@@ -753,6 +753,8 @@ class HomeFragment : Fragment() {
                             HomeFragmentDirections.actionGlobalSettingsFragment()
                         )
                     }
+
+                    /* Gexsi begin: disable sync tabs
                     HomeMenu.Item.SyncedTabs -> {
                         hideOnboardingIfNeeded()
                         nav(
@@ -760,6 +762,8 @@ class HomeFragment : Fragment() {
                             HomeFragmentDirections.actionGlobalSyncedTabsFragment()
                         )
                     }
+                    Gexsi end */
+
                     HomeMenu.Item.Bookmarks -> {
                         hideOnboardingIfNeeded()
                         nav(
