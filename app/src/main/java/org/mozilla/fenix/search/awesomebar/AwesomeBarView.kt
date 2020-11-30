@@ -46,7 +46,11 @@ class AwesomeBarView(
 ) {
     private val sessionProvider: SessionSuggestionProvider
     private val historyStorageProvider: HistoryStorageSuggestionProvider
+    /* Gexsi begin: Frecency suggestions
     private val shortcutsEnginePickerProvider: ShortcutsSuggestionProvider
+    */
+    private val frecencySuggestionProvider: FrecencySuggestionProvider
+    // Gexsi end
     private val bookmarksStorageSuggestionProvider: BookmarksStorageSuggestionProvider
     private val syncedTabsStorageSuggestionProvider: SyncedTabsStorageSuggestionProvider
     private val defaultSearchSuggestionProvider: SearchSuggestionProvider
@@ -169,6 +173,7 @@ class AwesomeBarView(
                 showDescription = false
             )
 
+        /* Gexsi begin: Frecency suggestions provider
         shortcutsEnginePickerProvider =
             ShortcutsSuggestionProvider(
                 store = components.core.store,
@@ -176,6 +181,14 @@ class AwesomeBarView(
                 selectShortcutEngine = interactor::onSearchShortcutEngineSelected,
                 selectShortcutEngineSettings = interactor::onClickSearchEngineSettings
             )
+        */
+        frecencySuggestionProvider =
+            FrecencySuggestionProvider(
+                historyStorage = components.core.historyStorage,
+                loadUrlUseCase = loadUrlUseCase,
+                browserIcons = components.core.icons
+            )
+        // Gexsi end
 
         searchSuggestionProviderMap = HashMap()
     }
@@ -252,7 +265,10 @@ class AwesomeBarView(
     private fun getProvidersToRemove(state: SearchFragmentState): MutableSet<AwesomeBar.SuggestionProvider> {
         val providersToRemove = mutableSetOf<AwesomeBar.SuggestionProvider>()
 
-        providersToRemove.add(shortcutsEnginePickerProvider)
+        // Gexsi begin: frecency suggestions provider
+        // providersToRemove.add(shortcutsEnginePickerProvider)
+        providersToRemove.add(frecencySuggestionProvider)
+        // Gexsi end
 
         if (!state.showHistorySuggestions) {
             providersToRemove.add(historyStorageProvider)
@@ -293,8 +309,13 @@ class AwesomeBarView(
     private fun handleDisplayShortcutsProviders() {
         view.removeAllProviders()
         providersInUse.clear()
-        providersInUse.add(shortcutsEnginePickerProvider)
-        view.addProviders(shortcutsEnginePickerProvider)
+
+        // Gexsi begin: frecency suggestions provider
+        // providersInUse.add(shortcutsEnginePickerProvider)
+        // view.addProviders(shortcutsEnginePickerProvider)
+        providersInUse.add(frecencySuggestionProvider)
+        view.addProviders(frecencySuggestionProvider)
+        // Gexsi end
     }
 
     private fun getSuggestionProviderForEngine(engine: SearchEngine): List<AwesomeBar.SuggestionProvider> {

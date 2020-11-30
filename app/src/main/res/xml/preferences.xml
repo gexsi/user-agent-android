@@ -47,10 +47,13 @@
         android:title="@string/preferences_category_general"
         app:iconSpaceReserved="false"
         android:layout="@layout/preference_cat_style" >
+
+        <!-- Gexsi begin: disable search engines
         <androidx.preference.Preference
             android:icon="@drawable/ic_search"
             android:key="@string/pref_key_search_settings"
             android:title="@string/preferences_search" />
+        Gexsi end -->
 
         <androidx.preference.Preference
             android:icon="@drawable/ic_multiple_tabs"

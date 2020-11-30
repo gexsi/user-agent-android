@@ -559,17 +559,21 @@ class SearchDialogFragment : AppCompatDialogFragment(), UserInteractionHandler {
         urlView?.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun updateSearchShortcutsIcon(searchState: SearchFragmentState) {
         view?.apply {
-            search_engines_shortcut_button.isVisible = searchState.areShortcutsAvailable
-
+            /* Gexsi begin
+            search_engines_shortcut_button.isVisible =  searchState.areShortcutsAvailable
             val showShortcuts = searchState.showSearchShortcuts
             search_engines_shortcut_button.isChecked = showShortcuts
-
             val color = if (showShortcuts) R.attr.contrastText else R.attr.primaryText
             search_engines_shortcut_button.compoundDrawables[0]?.setTint(
                 requireContext().getColorFromAttr(color)
             )
+            */
+            search_engines_shortcut_button.isVisible = false
+            search_engines_shortcut_button.isChecked = false
+            // Gexsi end
         }
     }
 

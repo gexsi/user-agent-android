@@ -1,0 +1,11 @@
+{
+  "default": {
+    "searchDefault": "brand",
+    "searchOrder": ["brand"],
+    "visibleDefaultEngines": [
+      "brand"
+    ]
+  },
+  "regionOverrides": {},
+  "locales": {}
+}
