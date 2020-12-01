@@ -45,6 +45,7 @@
 
     <androidx.preference.PreferenceCategory
         android:title="@string/preferences_category_general"
+        android:key="category_general"
         app:iconSpaceReserved="false"
         android:layout="@layout/preference_cat_style" >
 
