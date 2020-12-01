@@ -63,7 +63,7 @@
     <color name="readermode_end_gradient_normal_theme">#FF0250bb</color>
     <color name="search_suggestion_indicator_icon_color_light_theme">#008787</color>
     <color name="search_suggestion_indicator_icon_bookmark_color_light_theme">#0060df</color>
-    <color name="preference_section_header_normal_theme">@color/accent_bright_light_theme</color>
+    <color name="preference_section_header_normal_theme">@color/default_launcher_background</color>
 
     <color name="mozac_widget_favicon_background_light_theme">@color/photonWhite</color>
     <color name="mozac_widget_favicon_border_light_theme">@color/photonLightGrey30</color>
