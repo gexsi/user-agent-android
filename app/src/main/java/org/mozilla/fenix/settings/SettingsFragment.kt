@@ -21,6 +21,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.amo_collection_override_dialog.view.*
@@ -33,6 +34,7 @@ import mozilla.components.concept.sync.OAuthAccount
 import mozilla.components.concept.sync.Profile
 import mozilla.components.support.ktx.android.content.getColorFromAttr
 import mozilla.components.support.ktx.android.view.showKeyboard
+import mozilla.components.support.locale.LocaleManager
 import org.mozilla.fenix.BrowserDirection
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.FeatureFlags
@@ -48,6 +50,7 @@ import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
 import org.mozilla.fenix.settings.account.AccountUiView
+import org.mozilla.fenix.settings.advanced.getSupportedLocales
 import org.mozilla.fenix.utils.Settings
 import kotlin.system.exitProcess
 
@@ -127,6 +130,14 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     // The setting is not a boolean, not tracked
                 }
             }
+        // Gexsi begin: remove language setting if supported locales less then or equal 2
+        val supportedLocales = LocaleManager.getSupportedLocales()
+        if (supportedLocales.count() <= 2) {
+            val languagePreference: Preference? = findPreference(getString(R.string.pref_key_language)) as Preference?
+            val generalCategory: PreferenceCategory? = findPreference("category_general") as PreferenceCategory?
+            generalCategory?.removePreference(languagePreference)
+        }
+        // Gexsi end
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
