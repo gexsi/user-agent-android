@@ -25,11 +25,7 @@ import org.mozilla.fenix.crashes.CrashListActivity
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.settings.about.AboutItemType.LICENSING_INFO
-import org.mozilla.fenix.settings.about.AboutItemType.PRIVACY_NOTICE
-import org.mozilla.fenix.settings.about.AboutItemType.RIGHTS
-import org.mozilla.fenix.settings.about.AboutItemType.SUPPORT
-import org.mozilla.fenix.settings.about.AboutItemType.WHATS_NEW
+import org.mozilla.fenix.settings.about.AboutItemType.*
 import org.mozilla.fenix.utils.Do
 import org.mozilla.fenix.whatsnew.WhatsNew
 import org.mozilla.geckoview.BuildConfig as GeckoViewBuildConfig
@@ -117,11 +113,15 @@ class AboutFragment : Fragment(), AboutPageListener {
             ""
         }
 
-        val content = getString(R.string.about_content, headerAppName)
+        // Gexsi begin: disable content
+//        val content = getString(R.string.about_content, headerAppName)
+        // Gexsi end
         val buildDate = BuildConfig.BUILD_DATE
 
         about_text.text = aboutText
-        about_content.text = content
+        // Gexsi begin: disable content
+//        about_content.text = content
+        // Gexsi end
         build_date.text = buildDate
     }
 
@@ -129,6 +129,7 @@ class AboutFragment : Fragment(), AboutPageListener {
         val context = requireContext()
 
         return listOf(
+            /* Gexsi begin:
             AboutPageItem(
                 AboutItem.ExternalLink(
                     WHATS_NEW,
@@ -156,7 +157,32 @@ class AboutFragment : Fragment(), AboutPageListener {
                     RIGHTS,
                     SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.YOUR_RIGHTS)
                 ), getString(R.string.about_know_your_rights)
+            ),*/
+            AboutPageItem(
+                AboutItem.ExternalLink(
+                    FAQ,
+                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.HELP)
+                ), getString(R.string.about_faq)
             ),
+            AboutPageItem(
+                AboutItem.ExternalLink(
+                    CONTACT,
+                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.CONTACT)
+                ), getString(R.string.about_contact)
+            ),
+            AboutPageItem(
+                AboutItem.ExternalLink(
+                    TERMS_OF_USE,
+                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.TERMS_OF_USE)
+                ), getString(R.string.about_terms_of_use)
+            ),
+            AboutPageItem(
+                AboutItem.ExternalLink(
+                    PRIVACY_POLICY,
+                    SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE)
+                ), getString(R.string.about_privacy_notice)
+            ),
+            // Gexsi end
             AboutPageItem(
                 AboutItem.ExternalLink(LICENSING_INFO, ABOUT_LICENSE_URL),
                 getString(R.string.about_licensing_information)
@@ -189,13 +215,17 @@ class AboutFragment : Fragment(), AboutPageListener {
                         WhatsNew.userViewedWhatsNew(requireContext())
                         requireComponents.analytics.metrics.track(Event.WhatsNewTapped)
                     }
+                    PRIVACY_POLICY -> {
+                        requireComponents.analytics.metrics.track(Event.PrivacyNoticeTapped)
+                    }
+                    /* Gexsi begin:
                     SUPPORT -> {
                         requireComponents.analytics.metrics.track(Event.SupportTapped)
                     }
-                    PRIVACY_NOTICE -> {
-                        requireComponents.analytics.metrics.track(Event.PrivacyNoticeTapped)
-                    }
                     LICENSING_INFO, RIGHTS -> {} // no telemetry needed
+                    */
+                    else -> {} // no telemetry needed
+                    // Gexsi end
                 }
 
                 openLinkInNormalTab(item.url)

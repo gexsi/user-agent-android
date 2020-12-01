@@ -1239,8 +1239,10 @@ abstract class BaseBrowserFragment : Fragment(), UserInteractionHandler,
         private const val REQUEST_CODE_APP_PERMISSIONS = 3
 
         val onboardingLinksList: List<String> = listOf(
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE),
+            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE)
+            /* Gexsi begin:
             SupportUtils.getFirefoxAccountSumoUrl()
+            Gexsi end */
         )
 
         val intentSourcesList: List<SessionState.Source> = listOf(

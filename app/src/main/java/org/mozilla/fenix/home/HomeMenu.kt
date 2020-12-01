@@ -88,8 +88,14 @@ class HomeMenu(
     }
 
     private val coreMenuItems by lazy {
+        // Gexsi begin:
+        val appName = context.getString(R.string.app_name)
+        // Gexsi end
         val whatsNewItem = BrowserMenuHighlightableItem(
-            context.getString(R.string.browser_menu_whats_new),
+            // Gexsi begin:
+//            context.getString(R.string.browser_menu_whats_new),
+            context.getString(R.string.browser_menu_about, appName),
+            // Gexsi end
             R.drawable.ic_whats_new,
             iconTintColorResource = primaryTextColor,
             highlight = BrowserMenuHighlight.LowPriority(
