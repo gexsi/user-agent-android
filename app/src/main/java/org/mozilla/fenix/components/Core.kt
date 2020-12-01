@@ -347,6 +347,7 @@ class Core(
 
         strictMode.resetAfter(StrictMode.allowThreadDiskReads()) {
             if (!context.settings().defaultTopSitesAdded) {
+                /* Gexsi begin: remove default top sites
                 if (Config.channel.isMozillaOnline) {
                     defaultTopSites.add(
                         Pair(
@@ -378,14 +379,15 @@ class Core(
                         )
                     }
 
-                    defaultTopSites.add(
-                        Pair(
-                            context.getString(R.string.default_top_site_wikipedia),
-                            SupportUtils.WIKIPEDIA_URL
-                        )
-                    )
                 }
+                Gexsi end */
 
+                defaultTopSites.add(
+                        Pair(
+                                context.getString(R.string.default_top_site_wikipedia),
+                                SupportUtils.WIKIPEDIA_URL
+                        )
+                )
                 context.settings().defaultTopSitesAdded = true
             }
         }

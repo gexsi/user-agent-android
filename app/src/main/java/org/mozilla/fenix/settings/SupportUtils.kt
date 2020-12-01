@@ -44,7 +44,13 @@ object SupportUtils {
         SEARCH_SUGGESTION("how-search-firefox-preview"),
         CUSTOM_SEARCH_ENGINES("custom-search-engines"),
         SYNC_SETUP("how-set-firefox-sync-firefox-preview"),
-        QR_CAMERA_ACCESS("qr-camera-access")
+        QR_CAMERA_ACCESS("qr-camera-access"),
+
+        // Gexsi begin:
+        PRIVACY_POLICY(""),
+        TERMS_OF_USE(""),
+        CONTACT("")
+        // Gexsi end
     }
 
     enum class MozillaPage(internal val path: String) {
@@ -55,17 +61,29 @@ object SupportUtils {
     /**
      * Gets a support page URL for the corresponding topic.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun getSumoURLForTopic(
         context: Context,
         topic: SumoTopic,
         locale: Locale = Locale.getDefault()
     ): String {
+        /* Gexsi begin:
         val escapedTopic = getEncodedTopicUTF8(topic.topicStr)
         // Remove the whitespace so a search is not triggered:
         val appVersion = context.appVersionName?.replace(" ", "")
         val osTarget = "Android"
         val langTag = getLanguageTag(locale)
         return "https://support.mozilla.org/1/mobile/$appVersion/$osTarget/$langTag/$escapedTopic"
+        */
+        return when (topic) {
+            SumoTopic.HELP -> context.getString(R.string.faq)
+            SumoTopic.WHATS_NEW -> context.getString(R.string.whats_new_url)
+            SumoTopic.PRIVACY_POLICY -> context.getString(R.string.privacy_policy)
+            SumoTopic.TERMS_OF_USE -> context.getString(R.string.terms_of_use)
+            SumoTopic.CONTACT -> context.getString(R.string.contact)
+            else -> "This topic is unsupported"
+        }
+        // Gexsi end
     }
 
     /**
@@ -82,11 +100,15 @@ object SupportUtils {
         return "https://support.mozilla.org/kb/access-mozilla-services-firefox-account"
     }
 
+    // Gexsi begin: Privacy Policy url */
+    @Suppress("UNUSED_PARAMETER")
     fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
-        val path = page.path
-        val langTag = getLanguageTag(locale)
-        return "https://www.mozilla.org/$langTag/$path"
+//        val path = page.path
+//        val langTag = getLanguageTag(locale)
+        // Find a way to get the following link from strings.
+        return "https://sealegacy.blue-search.org/privacy-policy.php"
     }
+    // Gexsi end
 
     fun getWhatsNewUrl(context: Context) = getSumoURLForTopic(context, SumoTopic.WHATS_NEW)
 

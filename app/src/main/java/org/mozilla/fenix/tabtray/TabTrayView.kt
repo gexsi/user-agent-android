@@ -163,6 +163,7 @@ class TabTrayView(
 
         setTopOffset(isInLandscape())
 
+        /* Gexsi begin: disable sync tabs
         if (view.context.settings().syncedTabsInTabsTray) {
             syncedTabsFeature.set(
                 feature = SyncedTabsFeature(
@@ -177,6 +178,7 @@ class TabTrayView(
                 view = view
             )
         }
+        Gexsi end */
 
         updateTabsTrayLayout()
 

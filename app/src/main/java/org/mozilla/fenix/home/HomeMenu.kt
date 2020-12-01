@@ -39,7 +39,11 @@ class HomeMenu(
         object Help : Item()
         object AddonsManager : Item()
         object Settings : Item()
-        object SyncedTabs : Item()
+
+        // Gexsi begin: disable authentication
+//        object SyncedTabs : Item()
+        // Gexsi end
+
         object History : Item()
         object Bookmarks : Item()
         object Downloads : Item()
@@ -84,8 +88,14 @@ class HomeMenu(
     }
 
     private val coreMenuItems by lazy {
+        // Gexsi begin:
+        val appName = context.getString(R.string.app_name)
+        // Gexsi end
         val whatsNewItem = BrowserMenuHighlightableItem(
-            context.getString(R.string.browser_menu_whats_new),
+            // Gexsi begin:
+//            context.getString(R.string.browser_menu_whats_new),
+            context.getString(R.string.browser_menu_about, appName),
+            // Gexsi end
             R.drawable.ic_whats_new,
             iconTintColorResource = primaryTextColor,
             highlight = BrowserMenuHighlight.LowPriority(
@@ -112,6 +122,7 @@ class HomeMenu(
             onItemTapped.invoke(Item.History)
         }
 
+        /* Gexsi begin: disable addons
         val addons = BrowserMenuImageText(
             context.getString(R.string.browser_menu_add_ons),
             R.drawable.ic_addons_extensions,
@@ -119,6 +130,7 @@ class HomeMenu(
         ) {
             onItemTapped.invoke(Item.AddonsManager)
         }
+        Gexsi end */
 
         val settingsItem = BrowserMenuImageText(
             context.getString(R.string.browser_menu_settings),
@@ -128,6 +140,7 @@ class HomeMenu(
             onItemTapped.invoke(Item.Settings)
         }
 
+        /* Gexsi begin: disable authentication
         val syncedTabsItem = BrowserMenuImageText(
             context.getString(R.string.library_synced_tabs),
             R.drawable.ic_synced_tabs,
@@ -135,7 +148,9 @@ class HomeMenu(
         ) {
             onItemTapped.invoke(Item.SyncedTabs)
         }
+        Gexsi end */
 
+        /* Gexsi begin: disable help
         val helpItem = BrowserMenuImageText(
             context.getString(R.string.browser_menu_help),
             R.drawable.ic_help,
@@ -143,6 +158,7 @@ class HomeMenu(
         ) {
             onItemTapped.invoke(Item.Help)
         }
+        Gexsi end */
 
         val downloadsItem = BrowserMenuImageText(
             context.getString(R.string.library_downloads),
@@ -152,6 +168,7 @@ class HomeMenu(
             onItemTapped.invoke(Item.Downloads)
         }
 
+        /* Gexsi begin: disable account authentication
         // Only query account manager if it has been initialized.
         // We don't want to cause its initialization just for this check.
         val accountAuthItem = if (context.components.backgroundServices.accountManagerAvailableQueue.isReady()) {
@@ -159,6 +176,7 @@ class HomeMenu(
         } else {
             null
         }
+        Gexsi end */
 
         val settings = context.components.settings
 
@@ -166,16 +184,25 @@ class HomeMenu(
             if (settings.shouldDeleteBrowsingDataOnQuit) quitItem else null,
             settingsItem,
             BrowserMenuDivider(),
-            if (settings.syncedTabsInTabsTray) null else syncedTabsItem,
+
+            // Gexsi begin: disable sync tabs
+//            if (settings.syncedTabsInTabsTray) null else syncedTabsItem,
+            // Gexsi end
+
             bookmarksItem,
             historyItem,
             downloadsItem,
             BrowserMenuDivider(),
-            addons,
-            BrowserMenuDivider(),
+
+            // Gexsi begin: disable addons
+//            addons,
+//            BrowserMenuDivider(),
+            // Gexsi end
             whatsNewItem,
-            helpItem,
-            accountAuthItem
+            // Gexsi begin: disable help and account
+//            helpItem,
+//            accountAuthItem
+            // Gexsi end
         ).also { items ->
             items.getHighlight()?.let { onHighlightPresent(it) }
         }

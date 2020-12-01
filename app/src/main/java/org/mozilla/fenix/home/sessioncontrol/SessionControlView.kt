@@ -68,25 +68,27 @@ private fun showCollections(
 
 private fun privateModeAdapterItems() = listOf(AdapterItem.PrivateBrowsingDescription)
 
-private fun onboardingAdapterItems(onboardingState: OnboardingState): List<AdapterItem> {
-    val items: MutableList<AdapterItem> = mutableListOf(AdapterItem.OnboardingHeader)
+private fun onboardingAdapterItems(): List<AdapterItem> {
+    val items: MutableList<AdapterItem> = mutableListOf()
 
+    // Gexsi begin: disable authentication header
     // Customize FxA items based on where we are with the account state:
-    items.addAll(
-        when (onboardingState) {
-            OnboardingState.SignedOutNoAutoSignIn -> {
-                listOf(
-                    AdapterItem.OnboardingManualSignIn
-                )
-            }
-            is OnboardingState.SignedOutCanAutoSignIn -> {
-                listOf(
-                    AdapterItem.OnboardingAutomaticSignIn(onboardingState)
-                )
-            }
-            OnboardingState.SignedIn -> listOf()
-        }
-    )
+//    items.addAll(
+//        when (onboardingState) {
+//            OnboardingState.SignedOutNoAutoSignIn -> {
+//                listOf(
+//                    AdapterItem.OnboardingManualSignIn
+//                )
+//            }
+//            is OnboardingState.SignedOutCanAutoSignIn -> {
+//                listOf(
+//                    AdapterItem.OnboardingAutomaticSignIn(onboardingState)
+//                )
+//            }
+//            OnboardingState.SignedIn -> listOf()
+//        }
+//    )
+    // Gexsi end
 
     items.addAll(
         listOf(
@@ -115,7 +117,9 @@ private fun HomeFragmentState.toAdapterList(): List<AdapterItem> = when (mode) {
         showCollectionPlaceholder
     )
     is Mode.Private -> privateModeAdapterItems()
-    is Mode.Onboarding -> onboardingAdapterItems(mode.state)
+    // Gexsi begin
+    is Mode.Onboarding -> onboardingAdapterItems()
+    // Gexsi end
 }
 
 private fun collectionTabItems(collection: TabCollection) =

@@ -2,6 +2,19 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources>
+    <!-- brand start -->
+    <!-- App what's new url -->
+    <string name="whats_new_url">https://sealegacy.blue-search.org/#mehr</string>
+    <!-- App privacy policy url -->
+    <string name="privacy_policy">https://sealegacy.blue-search.org/privacy-policy.php</string>
+    <!-- App FAQ url -->
+    <string name="faq">https://sealegacy.blue-search.org/#faq</string>
+    <!-- App Terms of use url -->
+    <string name="terms_of_use">https://sealegacy.blue-search.org/terms-of-use.php</string>
+    <!-- App Contact url -->
+    <string name="contact">https://sealegacy.blue-search.org/contact.php</string>
+    <!-- brand end -->
+
     <!-- App name for private browsing mode. The first parameter is the name of the app defined in app_name (for example: Fenix)-->
     <string name="app_name_private_5">Private %s</string>
     <!-- App name for private browsing mode. The first parameter is the name of the app defined in app_name (for example: Fenix)-->
@@ -133,7 +146,7 @@
     <!-- Browser menu button that sends a user to help articles -->
     <string name="browser_menu_help">Help</string>
     <!-- Browser menu button that sends a to a the what's new article -->
-    <string name="browser_menu_whats_new">What’s New</string>
+    <string name="browser_menu_about">About %1$s</string>
     <!-- Browser menu button that opens the settings menu -->
     <string name="browser_menu_settings">Settings</string>
     <!-- Browser menu button that opens a user's library -->
@@ -1341,7 +1354,13 @@
     <!-- About page link text to list of past crashes (like about:crashes on desktop) -->
     <string name="about_crashes">Crashes</string>
     <!-- About page link text to open privacy notice link -->
-    <string name="about_privacy_notice">Privacy notice</string>
+    <string name="about_privacy_notice">Privacy policy</string>
+    <!-- About page link text to open terms of use link -->
+    <string name="about_terms_of_use">Terms of use</string>
+    <!-- About page link text to open contact link -->
+    <string name="about_contact">Contact</string>
+    <!-- About page link text to FAQ link -->
+    <string name="about_faq">FAQ</string>
     <!-- About page link text to open know your rights link -->
     <string name="about_know_your_rights">Know your rights</string>
     <!-- About page link text to open licensing information link -->

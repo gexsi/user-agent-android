@@ -123,11 +123,12 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     val canShowCfr: Boolean
         get() = (System.currentTimeMillis() - lastCfrShownTimeInMillis) > THREE_DAYS_MS
 
+    /* Gexsi begin: disable sync tabs
     var syncedTabsInTabsTray by featureFlagPreference(
         appContext.getPreferenceKey(R.string.pref_key_synced_tabs_tabs_tray),
         default = false,
         featureFlag = FeatureFlags.syncedTabsInTabsTray
-    )
+    )*/
 
     var forceEnableZoom by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_accessibility_force_enable_zoom),
@@ -788,15 +789,21 @@ class Settings(private val appContext: Context) : PreferencesHolder {
         default = true
     )
 
-    var shouldPromptToSaveLogins by booleanPreference(
+    // Gexsi begin: disable save logins
+    var shouldPromptToSaveLogins = false
+    /* var shouldPromptToSaveLogins by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_save_logins),
         default = true
-    )
+    ) */
+    // Gexsi end
 
-    var shouldAutofillLogins by booleanPreference(
+    // Gexsi begin: disable save logins
+    var shouldAutofillLogins = false
+    /* var shouldAutofillLogins by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_autofill_logins),
         default = true
-    )
+    ) */
+    // Gexsi end
 
     var fxaSignedIn by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_fxa_signed_in),

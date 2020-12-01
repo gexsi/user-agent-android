@@ -106,8 +106,17 @@
         <item name="bottomBarBackground">@drawable/home_bottom_bar_background</item>
         <item name="bottomBarBackgroundTop">@drawable/home_bottom_bar_background_top</item>
         <item name="privateBrowsingButtonBackground">@android:color/transparent</item>
-        <item name="privateBrowsingButtonAccent">@color/primary_text_normal_theme</item>
+        <!-- Gexsi begin -->
+<!--        <item name="privateBrowsingButtonAccent">@color/primary_text_normal_theme</item>-->
+        <item name="privateBrowsingButtonAccent">@color/white_color</item>
+        <!-- Gexsi end -->
     </style>
+
+    <!-- Gexsi begin: splash screen -->
+    <style name="LaunchTheme" parent="NormalThemeBase">
+        <item name="android:windowBackground">@drawable/splashscreen_window_background</item>
+    </style>
+    <!-- Gexsi end -->
 
     <style name="NormalTheme" parent="NormalThemeBase" />
 

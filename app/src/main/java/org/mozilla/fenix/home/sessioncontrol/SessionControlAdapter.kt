@@ -85,7 +85,10 @@ sealed class AdapterItem(@LayoutRes val viewType: Int) {
             other is TabInCollectionItem && tab.id == other.tab.id
     }
 
-    object OnboardingHeader : AdapterItem(OnboardingHeaderViewHolder.LAYOUT_ID)
+    // Gexsi begin: disable authentication header
+//    object OnboardingHeader : AdapterItem(OnboardingHeaderViewHolder.LAYOUT_ID)
+    // Gexsi end
+
     data class OnboardingSectionHeader(
         val labelBuilder: (Context) -> String
     ) : AdapterItem(OnboardingSectionHeaderViewHolder.LAYOUT_ID) {
@@ -93,10 +96,12 @@ sealed class AdapterItem(@LayoutRes val viewType: Int) {
             other is OnboardingSectionHeader && labelBuilder == other.labelBuilder
     }
 
-    object OnboardingManualSignIn : AdapterItem(OnboardingManualSignInViewHolder.LAYOUT_ID)
-    data class OnboardingAutomaticSignIn(
-        val state: OnboardingState.SignedOutCanAutoSignIn
-    ) : AdapterItem(OnboardingAutomaticSignInViewHolder.LAYOUT_ID)
+    // Gexsi begin: disable authentication
+//    object OnboardingManualSignIn : AdapterItem(OnboardingManualSignInViewHolder.LAYOUT_ID)
+//    data class OnboardingAutomaticSignIn(
+//        val state: OnboardingState.SignedOutCanAutoSignIn
+//    ) : AdapterItem(OnboardingAutomaticSignInViewHolder.LAYOUT_ID)
+    // Gexsi end
 
     object OnboardingThemePicker : AdapterItem(OnboardingThemePickerViewHolder.LAYOUT_ID)
     object OnboardingTrackingProtection :
@@ -217,10 +222,14 @@ class SessionControlAdapter(
             is OnboardingSectionHeaderViewHolder -> holder.bind(
                 (item as AdapterItem.OnboardingSectionHeader).labelBuilder
             )
-            is OnboardingManualSignInViewHolder -> holder.bind()
-            is OnboardingAutomaticSignInViewHolder -> holder.bind(
-                (item as AdapterItem.OnboardingAutomaticSignIn).state.withAccount
-            )
+
+            // Gexsi begin: disable authentication
+//            is OnboardingManualSignInViewHolder -> holder.bind()
+//            is OnboardingAutomaticSignInViewHolder -> holder.bind(
+//                (item as AdapterItem.OnboardingAutomaticSignIn).state.withAccount
+//            )
+            // Gexsi end
+
         }
     }
 }

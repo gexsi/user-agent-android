@@ -47,10 +47,13 @@
         android:title="@string/preferences_category_general"
         app:iconSpaceReserved="false"
         android:layout="@layout/preference_cat_style" >
+
+        <!-- Gexsi begin: disable search engines
         <androidx.preference.Preference
             android:icon="@drawable/ic_search"
             android:key="@string/pref_key_search_settings"
             android:title="@string/preferences_search" />
+        Gexsi end -->
 
         <androidx.preference.Preference
             android:icon="@drawable/ic_multiple_tabs"
@@ -62,10 +65,12 @@
             android:key="@string/pref_key_customize"
             android:title="@string/preferences_customize" />
 
+        <!-- Gexsi begin: disable logins and password
         <androidx.preference.Preference
             android:icon="@drawable/ic_login"
             android:key="@string/pref_key_passwords"
             android:title="@string/preferences_passwords_logins_and_passwords" />
+        Gexsi end -->
 
         <androidx.preference.Preference
             android:icon="@drawable/ic_accessibility"
@@ -113,15 +118,19 @@
             android:key="@string/pref_key_delete_browsing_data_on_quit_preference"
             android:title="@string/preferences_delete_browsing_data_on_quit" />
 
+        <!-- Gexsi begin: disable notifications
         <androidx.preference.Preference
             android:icon="@drawable/ic_notifications"
             android:key="@string/pref_key_notifications"
             android:title="@string/preferences_notifications" />
+        Gexsi end -->
 
+        <!-- Gexsi begin: disable data collection
         <androidx.preference.Preference
             android:icon="@drawable/ic_data_collection"
             android:key="@string/pref_key_data_choices"
             android:title="@string/preferences_data_collection" />
+        Gexsi end -->
 
     </androidx.preference.PreferenceCategory>
 
@@ -130,6 +139,8 @@
         app:iconSpaceReserved="false"
         android:key="@string/pref_key_advanced"
         android:layout="@layout/preference_cat_style">
+
+        <!-- Gexsi begin: disable addons
         <androidx.preference.Preference
             android:icon="@drawable/ic_addons_extensions"
             android:key="@string/pref_key_addons"
@@ -139,6 +150,7 @@
             android:icon="@drawable/ic_addons_extensions"
             android:key="@string/pref_key_override_amo_collection"
             android:title="@string/preferences_customize_amo_collection"/>
+        Gexsi end -->
 
         <androidx.preference.SwitchPreference
             android:defaultValue="false"

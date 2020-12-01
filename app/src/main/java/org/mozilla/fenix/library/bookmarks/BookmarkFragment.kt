@@ -128,16 +128,23 @@ class BookmarkFragment : LibraryPageFragment<BookmarkNode>(), UserInteractionHan
     @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val accountManager = requireComponents.backgroundServices.accountManager
+
+        // Gexsi begin: disable authentication
+//        val accountManager = requireComponents.backgroundServices.accountManager
+        // Gexsi end
+
         consumeFrom(bookmarkStore) {
             bookmarkView.update(it)
 
+            // Gexsi begin: disable authentication
             // Only display the sign-in prompt if we're inside of the virtual "Desktop Bookmarks" node.
             // Don't want to pester user too much with it, and if there are lots of bookmarks present,
             // it'll just get visually lost. Inside of the "Desktop Bookmarks" node, it'll nicely stand-out,
             // since there are always only three other items in there. It's also the right place contextually.
-            bookmarkView.view.bookmark_folders_sign_in.isVisible =
-                it.tree?.guid == BookmarkRoot.Root.id && accountManager.authenticatedAccount() == null
+//            bookmarkView.view.bookmark_folders_sign_in.isVisible =
+//                it.tree?.guid == BookmarkRoot.Root.id && accountManager.authenticatedAccount() == null
+            bookmarkView.view.bookmark_folders_sign_in.isVisible = false
+            // Gexsi end
         }
     }
 
