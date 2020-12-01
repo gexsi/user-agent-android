@@ -27,7 +27,7 @@
     <!-- Content description (not visible, for screen readers etc.): "Private Browsing" menu button. -->
     <string name="content_description_disable_private_browsing_button">Disable private browsing</string>
     <!-- Placeholder text shown in the search bar before a user enters text -->
-    <string name="search_hint">Search or enter address</string>
+    <string name="search_hint">Search for our ocean…</string>
     <!-- No Open Tabs Message Description -->
     <string name="no_open_tabs_description">Your open tabs will be shown here.</string>
     <!-- No Private Tabs Message Description -->
