@@ -30,13 +30,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import mozilla.components.browser.state.search.SearchEngine
 import mozilla.components.browser.state.selector.getNormalOrPrivateTabs
 import mozilla.components.browser.state.state.SessionState
@@ -172,6 +167,10 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
         components.publicSuffixList.prefetch()
 
+        // Gexsi begin: Splashscreen, restore the regular theme before creating the views
+        setTheme(R.style.NormalTheme)
+        // Gexsi end
+
         setupThemeAndBrowsingMode(getModeFromIntentOrLastKnown(intent))
         setContentView(R.layout.activity_home)
 
@@ -298,6 +297,21 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
             settings().wasDefaultBrowserOnLastResume = settings().isDefaultBrowser()
         }
+
+        // Gexsi begin: splashscreen
+        // Now the app is started restore the original background to avoid weird splashscreen
+        // in oder Fragments
+        lifecycleScope.launch {
+            kotlinx.coroutines.delay(300L)
+            withContext(Dispatchers.Main) {
+                val ta = theme.obtainStyledAttributes(intArrayOf(R.attr.homeBackground))
+                ta.getDrawable(0)?.let {
+                    window.setBackgroundDrawable(it)
+                }
+                ta.recycle()
+            }
+        }
+        /* Ghostery End */
     }
 
     override fun onStart() {

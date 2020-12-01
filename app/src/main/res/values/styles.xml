@@ -112,6 +112,12 @@
         <!-- Gexsi end -->
     </style>
 
+    <!-- Gexsi begin: splash screen -->
+    <style name="LaunchTheme" parent="NormalThemeBase">
+        <item name="android:windowBackground">@drawable/splashscreen_window_background</item>
+    </style>
+    <!-- Gexsi end -->
+
     <style name="NormalTheme" parent="NormalThemeBase" />
 
     <style name="BaseDialogStyle" parent="Theme.MaterialComponents.Dialog.Alert">
