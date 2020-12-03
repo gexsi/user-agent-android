@@ -103,3 +103,4 @@ test_artifacts/
 
 # Web extensions: manifest.json files are generated
 manifest.json
+app/*/output-metadata.json
