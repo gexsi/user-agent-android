@@ -391,8 +391,8 @@
 
     <!-- Launcher Icon colors -->
     <color name="default_launcher_background">#3975B7</color>
-    <color name="nightly_launcher_background">#220033</color>
-    <color name="debug_launcher_background">#312A65</color>
+    <color name="nightly_launcher_background">@color/default_launcher_background</color>
+    <color name="debug_launcher_background">@color/default_launcher_background</color>
     <color name="ic_launcher_background">@color/default_launcher_background</color>
     <color name="ic_launcher_private_background">@color/default_launcher_background</color>
 
