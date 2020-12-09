@@ -115,9 +115,9 @@ class BrandAdSearchSuggestionProvider private constructor(
                         title = item.title,
                         description = item.description,
                         // Don't show an autocomplete arrow for the entered text
-                        editSuggestion = if (item.title == text) null else item.title,
+                        editSuggestion = null,
                         icon = getBitmapFromURL(item.imageUrl),
-                        score = Int.MAX_VALUE - (index + 1),
+                        score = Int.MIN_VALUE - (index + 1),
                         onSuggestionClicked = {
                             loadUrlUseCase.invoke(item.url)
                         }
@@ -127,6 +127,10 @@ class BrandAdSearchSuggestionProvider private constructor(
 
         return suggestions
     }
+
+    override val shouldClearSuggestions: Boolean
+        // We do not want the suggestion of this provider to disappear and re-appear when text changes.
+        get() = false
 
     companion object {
         private const val READ_TIMEOUT_IN_MS = 2000L
