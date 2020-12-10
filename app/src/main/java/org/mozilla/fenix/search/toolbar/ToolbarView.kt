@@ -82,7 +82,7 @@ class ToolbarView(
 
             edit.colors = edit.colors.copy(
                 text = context.getColorFromAttr(R.attr.primaryText),
-                hint = context.getColorFromAttr(R.attr.secondaryText),
+                hint = context.getColorFromAttr(R.attr.primaryText),
                 suggestionBackground = ContextCompat.getColor(
                     context,
                     R.color.suggestion_highlight_color
