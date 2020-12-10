@@ -19,8 +19,8 @@
                     android:topRightRadius="8dp"/>
                 <gradient
                     android:angle="45"
-                    android:endColor="#3975B7"
-                    android:startColor="#920094" />
+                    android:endColor="@color/default_launcher_background"
+                    android:startColor="@color/app_secondary_color" />
             </shape>
         </scale>
     </item>

@@ -149,6 +149,10 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
     private lateinit var navigationToolbar: Toolbar
 
     final override fun onCreate(savedInstanceState: Bundle?) {
+        // Gexsi begin: Splashscreen, restore the regular theme before creating the views
+        setTheme(R.style.NormalTheme)
+        // Gexsi end
+
         components.strictMode.attachListenerToDisablePenaltyDeath(supportFragmentManager)
         // There is disk read violations on some devices such as samsung and pixel for android 9/10
         components.strictMode.resetAfter(StrictMode.allowThreadDiskReads()) {
@@ -166,10 +170,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         )
 
         components.publicSuffixList.prefetch()
-
-        // Gexsi begin: Splashscreen, restore the regular theme before creating the views
-        setTheme(R.style.NormalTheme)
-        // Gexsi end
 
         setupThemeAndBrowsingMode(getModeFromIntentOrLastKnown(intent))
         setContentView(R.layout.activity_home)

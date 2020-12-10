@@ -12,17 +12,23 @@
     <color name="violet_50_48a">#7A9059FF</color>
     <color name="violet_70_12a">#1F592ACB</color>
 
+    <!-- Gexsi begin: private mode colors -->
+    <color name="private_light_grey">#555555</color>
+    <color name="private_middle_grey">#4d4d4d</color>
+    <color name="private_dark_grey">#464646</color>
+    <!-- Gexsi end -->
+
     <!-- Light theme color palette -->
-    <color name="primary_text_light_theme">#20123A</color>
-    <color name="secondary_text_light_theme">@color/photonGrey50</color>
+    <color name="primary_text_light_theme">@color/photonGrey90</color>
+    <color name="secondary_text_light_theme">@color/app_secondary_color</color>
     <color name="contrast_text_light_theme">@color/primary_text_dark_theme</color>
     <color name="caption_text_light_theme">@color/photonLightGrey90</color>
     <color name="foundation_light_theme">#F9F9FB</color>
     <color name="inset_light_theme">#E0E0E6</color>
     <color name="above_light_theme">#FFF</color>
-    <color name="accent_light_theme">#312A65</color>
-    <color name="accent_bright_light_theme">#592ACB</color>
-    <color name="about_link_normal_theme">#592ACB</color>
+    <color name="accent_light_theme">@color/default_launcher_background</color>
+    <color name="accent_bright_light_theme">@color/default_launcher_background</color>
+    <color name="about_link_normal_theme">@color/primary_text_light_theme</color>
     <color name="accent_high_contrast_light_theme">@color/accent_light_theme</color>
     <color name="tab_ring_light_theme">@color/accent_light_theme</color>
     <color name="neutral_light_theme">@color/photonGrey30</color>
@@ -69,7 +75,7 @@
     <color name="mozac_widget_favicon_border_light_theme">@color/photonLightGrey30</color>
 
     <!-- Tab Tray -->
-    <color name="tab_tray_item_text_light_theme">@color/photonInk80</color>
+    <color name="tab_tray_item_text_light_theme">@color/photonDarkGrey80</color>
     <color name="tab_tray_item_url_light_theme">@color/photonDarkGrey05</color>
     <color name="tab_tray_item_background_light_theme">@color/photonLightGrey10</color>
     <color name="tab_tray_item_selected_background_light_theme">#E5DFF4</color>
@@ -77,7 +83,7 @@
     <color name="tab_tray_item_divider_light_theme">@color/photonLightGrey30</color>
     <color name="tab_tray_item_media_stroke">#ffffff</color>
     <color name="tab_tray_item_media_background_light_theme">#312A65</color>
-    <color name="tab_tray_heading_icon_light_theme">@color/ink_20</color>
+    <color name="tab_tray_heading_icon_light_theme">@color/default_launcher_background</color>
     <color name="tab_tray_heading_icon_inactive_light_theme">@color/ink_20_48a</color>
     <color name="tab_tray_heading_icon_menu_light_theme">@color/accent_normal_theme</color>
     <color name="tab_tray_item_thumbnail_background_light_theme">@color/photonLightGrey10</color>
@@ -89,16 +95,16 @@
 
     <!-- Dark theme color palette -->
     <color name="primary_text_dark_theme">#FBFBFE</color>
-    <color name="secondary_text_dark_theme">#A7A2B7</color>
+    <color name="secondary_text_dark_theme">@color/app_secondary_color</color>
     <color name="contrast_text_dark_theme">@color/primary_text_dark_theme</color>
     <color name="caption_text_dark_theme">@color/photonLightGrey70</color>
     <color name="foundation_dark_theme">#1C1B22</color>
     <color name="inset_dark_theme">#32313C</color>
     <color name="above_dark_theme">#32313C</color>
-    <color name="accent_dark_theme">#9059FF</color>
-    <color name="accent_bright_dark_theme">#592ACB</color>
-    <color name="about_link_dark_theme">#AB71FF</color>
-    <color name="accent_high_contrast_dark_theme">#AB71FF</color>
+    <color name="accent_dark_theme">@color/default_launcher_background</color>
+    <color name="accent_bright_dark_theme">@color/default_launcher_background</color>
+    <color name="about_link_dark_theme">@color/white_color</color>
+    <color name="accent_high_contrast_dark_theme">@color/default_launcher_background</color>
     <color name="tab_ring_dark_theme">@color/accent_dark_theme</color>
     <color name="neutral_dark_theme">@color/photonGrey20</color>
     <color name="neutral_faded_dark_theme">#1FFBFBFE</color>
@@ -136,7 +142,7 @@
     <color name="prompt_login_edit_text_cursor_color_dark_theme">#9059ff</color>
     <color name="search_suggestion_indicator_icon_color_dark_theme">#2ac3a2</color>
     <color name="search_suggestion_indicator_icon_bookmark_color_dark_theme">#0090ed</color>
-    <color name="preference_section_header_dark_theme">@color/accent_high_contrast_dark_theme</color>
+    <color name="preference_section_header_dark_theme">@color/default_launcher_background</color>
 
     <color name="mozac_widget_favicon_background_dark_theme">@color/photonDarkGrey50</color>
     <color name="mozac_widget_favicon_border_dark_theme">@color/photonDarkGrey10</color>
@@ -149,7 +155,7 @@
     <color name="tab_tray_toolbar_background_dark_theme">@color/photonDarkGrey50</color>
     <color name="tab_tray_item_divider_dark_theme">@color/photonDarkGrey10</color>
     <color name="tab_tray_item_media_background_dark_theme">#9059FF</color>
-    <color name="tab_tray_heading_icon_dark_theme">@color/violet_50</color>
+    <color name="tab_tray_heading_icon_dark_theme">@color/default_launcher_background</color>
     <color name="tab_tray_heading_icon_inactive_dark_theme">@color/photonLightGrey05</color>
     <color name="tab_tray_heading_icon_menu_dark_theme">@color/photonLightGrey05</color>
     <color name="tab_tray_item_thumbnail_background_dark_theme">@color/photonDarkGrey50</color>
@@ -161,16 +167,16 @@
 
     <!-- Private theme color palette -->
     <color name="primary_text_private_theme">#FBFBFE</color>
-    <color name="secondary_text_private_theme">#A7A2B7</color>
+    <color name="secondary_text_private_theme">@color/app_secondary_color</color>
     <color name="contrast_text_private_theme">@color/primary_text_private_theme</color>
     <color name="caption_text_private_theme">@color/photonLightGrey70</color>
-    <color name="foundation_private_theme">#261E4B</color>
-    <color name="inset_private_theme">@color/photonInk50</color>
-    <color name="above_private_theme">@color/photonInk50</color>
-    <color name="accent_private_theme">#9059FF</color>
-    <color name="accent_bright_private_theme">#592ACB</color>
-    <color name="about_link_private_theme">#AB71FF</color>
-    <color name="accent_high_contrast_private_theme">#AA71FF</color>
+    <color name="foundation_private_theme">@color/private_dark_grey</color>
+    <color name="inset_private_theme">@color/private_light_grey</color>
+    <color name="above_private_theme">@color/private_dark_grey</color>
+    <color name="accent_private_theme">@color/default_launcher_background</color>
+    <color name="accent_bright_private_theme">@color/default_launcher_background</color>
+    <color name="about_link_private_theme">@color/white_color</color>
+    <color name="accent_high_contrast_private_theme">@color/default_launcher_background</color>
     <color name="tab_ring_private_theme">#F565FF</color>
     <color name="neutral_private_theme">@color/photonGrey20</color>
     <color name="neutral_faded_private_theme">#1FFBFBFE</color>
@@ -181,9 +187,9 @@
     <color name="scrimEnd_private_theme">#F515141A</color>
     <color name="snackbar_private_theme">@color/accent_light_theme</color>
     <color name="accent_on_dark_background_private_theme">@color/accent_high_contrast_private_theme</color>
-    <color name="toolbar_start_gradient_private_theme">#7529A7</color>
-    <color name="toolbar_center_gradient_private_theme">#492E85</color>
-    <color name="toolbar_end_gradient_private_theme">#383372</color>
+    <color name="toolbar_start_gradient_private_theme">@color/private_light_grey</color>
+    <color name="toolbar_center_gradient_private_theme">@color/private_middle_grey</color>
+    <color name="toolbar_end_gradient_private_theme">@color/private_dark_grey</color>
     <color name="toolbar_divider_color_private_theme">#52525E</color>
     <color name="fill_link_from_clipboard_private_theme">@color/accent_on_dark_background_private_theme</color>
     <color name="menu_category_private_theme">@color/primary_text_private_theme</color>
@@ -396,10 +402,13 @@
     <color name="ic_launcher_background">@color/default_launcher_background</color>
     <color name="ic_launcher_private_background">@color/default_launcher_background</color>
 
+    <!--  App Secondary color  -->
+    <color name="app_secondary_color">#f36d26</color>
+
     <!-- Button Colors -->
     <color name="grey_button_color">#E0E0E6</color>
     <color name="destructive_button_text_color">#C50042</color>
-    <color name="button_text_color">#312A65</color>
+    <color name="button_text_color">@color/photonDarkGrey80</color>
 
     <!-- Search Widget -->
     <color name="search_widget_background">@color/white_color</color>
