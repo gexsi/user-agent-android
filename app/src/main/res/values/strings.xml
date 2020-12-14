@@ -232,7 +232,7 @@
     <!-- Text preview for smaller sized widgets -->
     <string name="search_widget_text_short">Search</string>
     <!-- Text preview for larger sized widgets -->
-    <string name="search_widget_text_long">Search the web</string>
+    <string name="search_widget_text_long">@string/search_hint</string>
     <!-- Content description (not visible, for screen readers etc.): Voice search -->
     <string name="search_widget_voice">Voice search</string>
 
@@ -1131,7 +1131,7 @@
     <string name="onboarding_fxa_section_header">Already have an account?</string>
     <!-- text for the Firefox Preview feature section header
     The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_feature_section_header">Get to know %s</string>
+    <string name="onboarding_feature_section_header">Through the simple act of searching, we can create healthy and abundant ocean together.</string>
     <!-- text for the "What's New" onboarding card header -->
     <string name="onboarding_whats_new_header1">See what’s new</string>
     <!-- text for the "what's new" onboarding card description

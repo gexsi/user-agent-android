@@ -29,7 +29,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/search_widget_text"
         android:textSize="15sp"
-        tools:text="Search the web" />
+        tools:text="@string/search_hint" />
 
     <ImageButton
         android:id="@+id/button_search_widget_voice"

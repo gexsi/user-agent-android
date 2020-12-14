@@ -93,15 +93,16 @@ private fun onboardingAdapterItems(): List<AdapterItem> {
     items.addAll(
         listOf(
             AdapterItem.OnboardingSectionHeader {
-                val appName = it.getString(R.string.app_name)
-                it.getString(R.string.onboarding_feature_section_header, appName)
-            },
+                it.getString(R.string.onboarding_feature_section_header)
+            }
+            /* Gexsi begin: disable other onboarding options
             AdapterItem.OnboardingTrackingProtection,
             AdapterItem.OnboardingThemePicker,
             AdapterItem.OnboardingPrivateBrowsing,
             AdapterItem.OnboardingToolbarPositionPicker,
             AdapterItem.OnboardingPrivacyNotice,
             AdapterItem.OnboardingFinish
+            Gexsi end */
         )
     )
 

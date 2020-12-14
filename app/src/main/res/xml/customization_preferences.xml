@@ -9,7 +9,7 @@
         android:title="@string/preferences_theme"
         app:iconSpaceReserved="false">
         <org.mozilla.fenix.settings.RadioButtonPreference
-            android:defaultValue="@bool/underAPI28"
+            android:defaultValue="false"
             android:key="@string/pref_key_light_theme"
             android:title="@string/preference_light_theme" />
 
@@ -19,7 +19,7 @@
             android:title="@string/preference_dark_theme" />
 
         <org.mozilla.fenix.settings.RadioButtonPreference
-            android:defaultValue="false"
+            android:defaultValue="@bool/underAPI28"
             android:key="@string/pref_key_auto_battery_theme"
             android:title="@string/preference_auto_battery_theme"
             app:isPreferenceVisible="@bool/underAPI28" />

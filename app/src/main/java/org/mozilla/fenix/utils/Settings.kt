@@ -377,7 +377,11 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     var shouldFollowDeviceTheme by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_follow_device_theme),
+        /* Gexsi begin:
         default = false
+        */
+        default = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+        // Gexsi end
     )
 
     var shouldUseTrackingProtection by booleanPreference(
@@ -401,7 +405,11 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     val shouldUseAutoBatteryTheme by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_auto_battery_theme),
+        /* Gexsi begin:
         default = false
+        */
+        default = Build.VERSION.SDK_INT < Build.VERSION_CODES.P
+        // Gexsi end
     )
 
     val useStandardTrackingProtection by booleanPreference(
@@ -531,7 +539,11 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     var shouldUseBottomToolbar by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_toolbar_bottom),
         // Default accessibility users to top toolbar
+        /* Gexsi begin:
         default = !touchExplorationIsEnabled && !switchServiceIsEnabled
+        */
+        default = false
+        // Gexsi end
     )
 
     val toolbarPosition: ToolbarPosition

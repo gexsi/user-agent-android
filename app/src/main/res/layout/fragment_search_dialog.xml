@@ -165,6 +165,7 @@
         android:paddingTop="@dimen/search_fragment_pill_padding_vertical"
         android:paddingEnd="@dimen/search_fragment_pill_padding_end"
         android:paddingBottom="@dimen/search_fragment_pill_padding_vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

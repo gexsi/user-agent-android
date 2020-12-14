@@ -229,7 +229,11 @@ class SearchDialogFragment : AppCompatDialogFragment(), UserInteractionHandler {
             view = view
         )
 
+        /* Gexsi begin: disable qr scan
         qr_scan_button.visibility = if (context?.hasCamera() == true) View.VISIBLE else View.GONE
+        */
+        qr_scan_button.visibility = View.GONE
+        //Gexsi end
 
         qr_scan_button.setOnClickListener {
             if (!requireContext().hasCamera()) { return@setOnClickListener }
@@ -533,8 +537,14 @@ class SearchDialogFragment : AppCompatDialogFragment(), UserInteractionHandler {
 
         fill_link_from_clipboard.isVisible = shouldShowView
         fill_link_divider.isVisible = shouldShowView
+
+        /* Gexsi begin:
         pill_wrapper_divider.isVisible =
             !(shouldShowView && requireComponents.settings.shouldUseBottomToolbar)
+        */
+        pill_wrapper_divider.isVisible = false
+        // Gexsi end
+
         clipboard_url.isVisible = shouldShowView
         clipboard_title.isVisible = shouldShowView
         link_icon.isVisible = shouldShowView

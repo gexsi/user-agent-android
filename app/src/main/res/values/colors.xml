@@ -151,10 +151,10 @@
     <color name="tab_tray_item_text_dark_theme">@color/photonLightGrey05</color>
     <color name="tab_tray_item_url_dark_theme">@color/photonLightGrey60</color>
     <color name="tab_tray_item_background_dark_theme">@color/photonDarkGrey80</color>
-    <color name="tab_tray_item_selected_background_dark_theme">#412E69</color>
+    <color name="tab_tray_item_selected_background_dark_theme">@color/default_launcher_background</color>
     <color name="tab_tray_toolbar_background_dark_theme">@color/photonDarkGrey50</color>
     <color name="tab_tray_item_divider_dark_theme">@color/photonDarkGrey10</color>
-    <color name="tab_tray_item_media_background_dark_theme">#9059FF</color>
+    <color name="tab_tray_item_media_background_dark_theme">@color/default_launcher_background</color>
     <color name="tab_tray_heading_icon_dark_theme">@color/default_launcher_background</color>
     <color name="tab_tray_heading_icon_inactive_dark_theme">@color/photonLightGrey05</color>
     <color name="tab_tray_heading_icon_menu_dark_theme">@color/photonLightGrey05</color>
@@ -214,7 +214,7 @@
     <color name="tab_tray_item_text_private_theme">@color/photonLightGrey05</color>
     <color name="tab_tray_item_url_private_theme">@color/photonLightGrey60</color>
     <color name="tab_tray_item_background_private_theme">@color/photonInk90</color>
-    <color name="tab_tray_item_selected_background_private_theme">#422875</color>
+    <color name="tab_tray_item_selected_background_private_theme">@color/default_launcher_background</color>
     <color name="tab_tray_toolbar_background_private_theme">@color/photonInk50</color>
     <color name="tab_tray_item_divider_private_theme">@color/photonDarkGrey10</color>
     <color name="tab_tray_item_media_background_private_theme">#9059FF</color>
