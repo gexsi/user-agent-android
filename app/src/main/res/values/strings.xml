@@ -89,7 +89,7 @@
 
     <!-- Open in App "contextual feature recommendation" (CFR) -->
     <!-- Text for the info message. 'Firefox' intentionally hardcoded here.-->
-    <string name="open_in_app_cfr_info_message">You can set Firefox to automatically open links in apps.</string>
+    <string name="open_in_app_cfr_info_message">You can set App to automatically open links in apps.</string>
     <!-- Text for the positive action button -->
     <string name="open_in_app_cfr_positive_button_text">Go to settings</string>
     <!-- Text for the negative action button -->
@@ -228,7 +228,7 @@
 
     <!-- Search Widget -->
     <!-- Content description for searching with a widget. Firefox is intentionally hardcoded.-->
-    <string name="search_widget_content_description">Open a new Firefox tab</string>
+    <string name="search_widget_content_description">Open a new tab</string>
     <!-- Text preview for smaller sized widgets -->
     <string name="search_widget_text_short">Search</string>
     <!-- Text preview for larger sized widgets -->

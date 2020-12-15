@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white_color"
         android:textSize="20sp"
-        android:fontFamily="@font/metropolis_semibold"
+        android:fontFamily="@font/roboto_bold"
         tools:text="@tools:sample/lorem"
         android:layout_marginBottom="5dp" />

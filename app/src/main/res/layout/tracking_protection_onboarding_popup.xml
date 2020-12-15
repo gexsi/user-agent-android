@@ -52,7 +52,7 @@
             android:text="@string/etp_onboarding_cfr_message"
             android:textColor="@color/primary_text_dark_theme"
             android:textSize="16sp"
-            app:fontFamily="@font/metropolis_medium"
+            app:fontFamily="@font/roboto_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/close_onboarding"
             app:layout_constraintStart_toStartOf="parent"

@@ -169,9 +169,9 @@ class SearchWidgetProvider : AppWidgetProvider() {
                 R.id.button_search_widget_new_tab_icon,
                 AppCompatResources.getDrawable(
                         context,
-                        R.drawable.ic_launcher_foreground
+                        R.drawable.ic_widget_icon
                 )?.mutate()?.apply {
-                    setTint(ContextCompat.getColor(context, R.color.default_launcher_background))
+                    setTint(ContextCompat.getColor(context, R.color.app_secondary_color))
                 }?.toBitmap())
         // Gexsi end
     }
