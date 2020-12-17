@@ -257,6 +257,7 @@
         <service android:name=".session.PrivateNotificationService"
                 android:exported="false" />
 
+        <!-- Gexsi begin: disable push service
         <service
             android:name=".push.FirebasePushService"
             android:exported="false">
@@ -264,6 +265,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        Gexsi end -->
 
         <meta-data
             android:name="firebase_messaging_auto_init_enabled"

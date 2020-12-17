@@ -34,10 +34,12 @@ buildscript {
                     includeGroupByRegex RepoMatching.comGoogleAndroid
                     includeGroupByRegex RepoMatching.comGoogleFirebase
                     includeGroupByRegex RepoMatching.comAndroid
+                    // Gexsi begin: add google service
+                    includeGroupByRegex RepoMatching.comGoogleServices
+                    // Gexsi end
                 }
             }
         }
-
         if (project.hasProperty("jcenterRepo")) {
             maven {
                 name "BintrayJCenter"
@@ -68,6 +70,16 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+
+        // Gexsi begin: add google service
+        // Check that you have the Google Services Gradle plugin v4.3.2 or later
+        // (if not, add it).
+        classpath 'com.google.gms:google-services:4.3.4'
+
+        // Add the Crashlytics Gradle plugin (be sure to add version
+        // 2.0.0 or later if you built your app with Android Studio 4.1).
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.4.1'
+        // Gexsi end
     }
 }
 
@@ -107,6 +119,9 @@ allprojects {
                     includeGroupByRegex RepoMatching.comGoogleAndroid
                     includeGroupByRegex RepoMatching.comGoogleFirebase
                     includeGroupByRegex RepoMatching.comAndroid
+                    // Gexsi begin: add google service
+                    includeGroupByRegex RepoMatching.comGoogleServices
+                    // Gexsi end
                 }
             }
         }

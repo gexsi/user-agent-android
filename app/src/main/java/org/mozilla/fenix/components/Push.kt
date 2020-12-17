@@ -4,6 +4,7 @@
 
 package org.mozilla.fenix.components
 
+/* Gexsi begin: disable push service
 import android.content.Context
 import mozilla.components.feature.push.AutoPushFeature
 import mozilla.components.feature.push.PushConfig
@@ -45,3 +46,4 @@ class Push(context: Context, crashReporter: CrashReporter) {
 
     private val pushService by lazyMonitored { FirebasePushService() }
 }
+Gexsi end */

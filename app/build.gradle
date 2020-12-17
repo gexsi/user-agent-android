@@ -8,7 +8,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'jacoco'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'com.google.android.gms.oss-licenses-plugin'
-
+// Gexsi begin: add google service
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+// Gexsi end
 
 import com.android.build.OutputFile
 import groovy.json.JsonOutput
@@ -64,26 +67,9 @@ android {
         debug {
             shrinkResources false
             minifyEnabled false
-            applicationIdSuffix ".sealegacy.blue.debug"
+            applicationIdSuffix ".sealegacy.blue"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled true
-        }
-        beta releaseTemplate >> {
-            buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".sealegacy.blue.beta"
-            def deepLinkSchemeValue = "sealegacy.blue.beta"
-            buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
-            manifestPlaceholders = [
-                    // This release type is meant to replace Firefox (Beta channel) and therefore needs to inherit
-                    // its sharedUserId for all eternity. See:
-                    // https://searchfox.org/mozilla-central/search?q=moz_android_shared_id&case=false&regexp=false&path=
-                    // Shipping an app update without sharedUserId can have
-                    // fatal consequences. For example see:
-                    //  - https://issuetracker.google.com/issues/36924841
-                    //  - https://issuetracker.google.com/issues/36905922
-                    "sharedUserId": "org.mozilla.firefox.sharedID",
-                    "deepLinkScheme": deepLinkSchemeValue
-            ]
         }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
@@ -130,10 +116,6 @@ android {
         }
         debug {
             java.srcDirs = ['src/geckoNightly/java']
-        }
-        beta {
-            java.srcDirs = ['src/migration/java', 'src/geckoBeta/java']
-            manifest.srcFile "src/migration/AndroidManifest.xml"
         }
         release {
             java.srcDirs = ['src/migration/java', 'src/geckoRelease/java']
@@ -359,7 +341,6 @@ dependencies {
     testImplementation files(configurations.jnaForTest.copyRecursive().files)
 
     debugImplementation Deps.mozilla_browser_engine_gecko_nightly
-    betaImplementation Deps.mozilla_browser_engine_gecko_beta
     releaseImplementation Deps.mozilla_browser_engine_gecko_release
 
     implementation Deps.kotlin_stdlib
@@ -481,6 +462,16 @@ dependencies {
     implementation Deps.google_ads_id // Required for the Google Advertising ID
 
     implementation Deps.google_play_store // Required for in-app reviews
+
+    // Gexsi begin: add google service
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.1.1')
+
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    // Gexsi end
 
     androidTestImplementation Deps.uiautomator
 // Removed pending AndroidX fixes

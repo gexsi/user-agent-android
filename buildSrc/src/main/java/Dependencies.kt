@@ -243,6 +243,9 @@ object RepoMatching {
     const val androidx = "androidx\\..*"
     const val comAndroid = "com\\.android.*"
     const val comGoogleFirebase = "com\\.google\\.firebase"
+    // Gexsi begin: add google service matching
+    const val comGoogleServices = "com\\.google\\.gms"
+    // Gexsi end
 
     /**
      * A matcher for com.google.android.* with one exception: the espresso-contrib dependency includes the

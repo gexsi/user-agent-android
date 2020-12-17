@@ -4,6 +4,7 @@
 
 package org.mozilla.fenix.push
 
+/* Gexsi begin: disable push service
 import android.annotation.SuppressLint
 import com.google.firebase.messaging.RemoteMessage
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -66,3 +67,4 @@ class FirebasePushService : LeanplumPushFirebaseMessagingService(),
  */
 @SuppressLint("MissingFirebaseInstanceTokenRefresh") // Implemented internally.
 object AutoPushService : AbstractFirebasePushService()
+Gexsi end */
