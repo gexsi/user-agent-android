@@ -113,12 +113,14 @@ android {
             versionName "2.0.0"
             applicationIdSuffix ".sealegacy.blue"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"sealegacy.blue\""
+            buildConfigField "String[]", "SUPPORTED_LOCALE_ARRAY", "new String[]{\"en-US\"}"
         }
         gexsi {
             versionCode 1
             versionName "1.0.0"
-            applicationIdSuffix ".sealegacy.blue"
-            buildConfigField "String", "DEEP_LINK_SCHEME", "\"sealegacy.blue\""
+            applicationIdSuffix ".blue"
+            buildConfigField "String", "DEEP_LINK_SCHEME", "\"blue\""
+            buildConfigField "String[]", "SUPPORTED_LOCALE_ARRAY", "new String[]{\"en-US\", \"de\"}"
         }
     }
     // Gexsi end
@@ -615,6 +617,7 @@ tasks.register('printVariants') {
     }
 }
 
+/* Gexsi begin: disable translation build
 task buildTranslationArray {
     // This isn't running as a task, instead the array is build when the gradle file is parsed.
     // https://github.com/mozilla-mobile/fenix/issues/14175
@@ -633,6 +636,7 @@ task buildTranslationArray {
     def foundLocalesString = foundLocales.toString().replaceAll(',}','}')
     android.defaultConfig.buildConfigField "String[]", "SUPPORTED_LOCALE_ARRAY", foundLocalesString
 }
+Gexsi end */
 
 afterEvaluate {
 

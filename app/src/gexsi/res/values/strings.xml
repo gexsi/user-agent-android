@@ -17,6 +17,6 @@
     <string name="search_hint">Search and do good</string>
 
     <!-- text for the Firefox Preview feature section header
-The first parameter is the name of the app (e.g. Firefox Preview) -->
+        The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="onboarding_feature_section_header">We are a social business, 100% non-profit.</string>
 </resources>

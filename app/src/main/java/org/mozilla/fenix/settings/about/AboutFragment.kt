@@ -127,9 +127,56 @@ class AboutFragment : Fragment(), AboutPageListener {
 
     private fun populateAboutList(): List<AboutPageItem> {
         val context = requireContext()
-
+        val list = mutableListOf<AboutPageItem>()
+        val faqUrl = getString(R.string.faq)
+        if (faqUrl.trim().isNotEmpty()) {
+            list.add(AboutPageItem(
+                AboutItem.ExternalLink(
+                    FAQ,
+                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.HELP)
+                ), getString(R.string.about_faq)
+            ))
+        }
+        val contactUrl = getString(R.string.contact)
+        if (contactUrl.trim().isNotEmpty()) {
+            list.add(AboutPageItem(
+                AboutItem.ExternalLink(
+                    CONTACT,
+                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.CONTACT)
+                ), getString(R.string.about_contact)
+            ))
+        }
+        val termOfUseUrl = getString(R.string.terms_of_use)
+        if (termOfUseUrl.trim().isNotEmpty()) {
+            list.add(AboutPageItem(
+                AboutItem.ExternalLink(
+                    TERMS_OF_USE,
+                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.TERMS_OF_USE)
+                ), getString(R.string.about_terms_of_use)
+            ))
+        }
+        val privacyPolicyUrl = getString(R.string.privacy_policy)
+        if (privacyPolicyUrl.trim().isNotEmpty()) {
+            list.add(AboutPageItem(
+                AboutItem.ExternalLink(
+                    PRIVACY_POLICY,
+                    SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE)
+                ), getString(R.string.about_privacy_notice)
+            ))
+        }
+        list.addAll(listOf(
+            AboutPageItem(
+                AboutItem.ExternalLink(LICENSING_INFO, ABOUT_LICENSE_URL),
+                getString(R.string.about_licensing_information)
+            ),
+            AboutPageItem(
+                AboutItem.Libraries,
+                getString(R.string.about_other_open_source_libraries)
+            )
+        ))
+        return list
+        /* Gexsi begin:
         return listOf(
-            /* Gexsi begin:
             AboutPageItem(
                 AboutItem.ExternalLink(
                     WHATS_NEW,
@@ -157,32 +204,7 @@ class AboutFragment : Fragment(), AboutPageListener {
                     RIGHTS,
                     SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.YOUR_RIGHTS)
                 ), getString(R.string.about_know_your_rights)
-            ),*/
-            AboutPageItem(
-                AboutItem.ExternalLink(
-                    FAQ,
-                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.HELP)
-                ), getString(R.string.about_faq)
             ),
-            AboutPageItem(
-                AboutItem.ExternalLink(
-                    CONTACT,
-                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.CONTACT)
-                ), getString(R.string.about_contact)
-            ),
-            AboutPageItem(
-                AboutItem.ExternalLink(
-                    TERMS_OF_USE,
-                    SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.TERMS_OF_USE)
-                ), getString(R.string.about_terms_of_use)
-            ),
-            AboutPageItem(
-                AboutItem.ExternalLink(
-                    PRIVACY_POLICY,
-                    SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE)
-                ), getString(R.string.about_privacy_notice)
-            ),
-            // Gexsi end
             AboutPageItem(
                 AboutItem.ExternalLink(LICENSING_INFO, ABOUT_LICENSE_URL),
                 getString(R.string.about_licensing_information)
@@ -192,6 +214,7 @@ class AboutFragment : Fragment(), AboutPageListener {
                 getString(R.string.about_other_open_source_libraries)
             )
         )
+        Gexsi end */
     }
 
     private fun openLinkInNormalTab(url: String) {
