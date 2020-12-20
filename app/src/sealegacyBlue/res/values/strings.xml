@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources>
+    <!-- App what's new url -->
+    <string name="whats_new_url">https://sealegacy.blue-search.org/#mehr</string>
+    <!-- App privacy policy url -->
+    <string name="privacy_policy">https://sealegacy.blue-search.org/privacy-policy.php</string>
+    <!-- App FAQ url -->
+    <string name="faq">https://sealegacy.blue-search.org/#faq</string>
+    <!-- App Terms of use url -->
+    <string name="terms_of_use">https://sealegacy.blue-search.org/terms-of-use.php</string>
+    <!-- App Contact url -->
+    <string name="contact">https://sealegacy.blue-search.org/contact.php</string>
+
+    <!-- Placeholder text shown in the search bar before a user enters text -->
+    <string name="search_hint">Search for our ocean…</string>
+
+    <!-- text for the Firefox Preview feature section header
+The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <string name="onboarding_feature_section_header">Through the simple act of searching, we can create healthy and abundant ocean together.</string>
+</resources>

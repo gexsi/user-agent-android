@@ -4,7 +4,13 @@
 
 package org.mozilla.fenix
 
+// Gexsi begin: disable telemetry
+//import mozilla.components.service.glean.config.Configuration
+//import mozilla.components.service.glean.net.ConceptFetchHttpUploader
+// Gexsi end
+
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.StrictMode
@@ -14,24 +20,13 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.getSystemService
 import androidx.work.Configuration.Builder
 import androidx.work.Configuration.Provider
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import mozilla.appservices.Megazord
 import mozilla.components.browser.session.Session
 import mozilla.components.browser.state.action.SystemAction
-import mozilla.components.concept.push.PushProcessor
 import mozilla.components.feature.addons.update.GlobalAddonDependencyProvider
 import mozilla.components.lib.crash.CrashReporter
 import mozilla.components.service.glean.Glean
-
-// Gexsi begin: disable telemetry
-//import mozilla.components.service.glean.config.Configuration
-//import mozilla.components.service.glean.net.ConceptFetchHttpUploader
-// Gexsi end
-
 import mozilla.components.support.base.log.Log
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.android.content.isMainProcess
@@ -44,11 +39,9 @@ import mozilla.components.support.webextensions.WebExtensionSupport
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.metrics.MetricServiceType
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.perf.StorageStatsMetrics
 import org.mozilla.fenix.perf.StartupTimeline
+import org.mozilla.fenix.perf.StorageStatsMetrics
 import org.mozilla.fenix.perf.runBlockingIncrement
-import org.mozilla.fenix.push.PushFxaIntegration
-import org.mozilla.fenix.push.WebPushEngineIntegration
 import org.mozilla.fenix.session.PerformanceActivityLifecycleCallbacks
 import org.mozilla.fenix.session.VisibilityLifecycleCallback
 import org.mozilla.fenix.utils.BrowsersCache
@@ -60,6 +53,7 @@ import org.mozilla.fenix.utils.BrowsersCache
 @Suppress("Registered", "TooManyFunctions", "LargeClass")
 open class FenixApplication : LocaleAwareApplication(), Provider {
     init {
+        instance = this
         recordOnInit() // DO NOT MOVE ANYTHING ABOVE HERE: the timing of this measurement is critical.
     }
 
@@ -376,23 +370,23 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             WebExtensionSupport.initialize(
                 components.core.engine,
                 components.core.store,
-                onNewTabOverride = {
-                    _, engineSession, url ->
-                        val shouldCreatePrivateSession =
-                            components.core.sessionManager.selectedSession?.private
-                                ?: components.settings.openLinksInAPrivateTab
+                onNewTabOverride = { _, engineSession, url ->
+                    val shouldCreatePrivateSession =
+                        components.core.sessionManager.selectedSession?.private
+                            ?: components.settings.openLinksInAPrivateTab
 
-                        val session = Session(url, shouldCreatePrivateSession)
-                        components.core.sessionManager.add(session, true, engineSession)
-                        session.id
+                    val session = Session(url, shouldCreatePrivateSession)
+                    components.core.sessionManager.add(session, true, engineSession)
+                    session.id
                 },
-                onCloseTabOverride = {
-                    _, sessionId -> components.useCases.tabsUseCases.removeTab(sessionId)
+                onCloseTabOverride = { _, sessionId ->
+                    components.useCases.tabsUseCases.removeTab(
+                        sessionId
+                    )
                 },
-                onSelectTabOverride = {
-                    _, sessionId ->
-                        val selected = components.core.sessionManager.findSessionById(sessionId)
-                        selected?.let { components.useCases.tabsUseCases.selectTab(it) }
+                onSelectTabOverride = { _, sessionId ->
+                    val selected = components.core.sessionManager.findSessionById(sessionId)
+                    selected?.let { components.useCases.tabsUseCases.selectTab(it) }
                 },
                 onExtensionsLoaded = { extensions ->
                     components.addonUpdater.registerForFutureUpdates(extensions)
@@ -436,6 +430,10 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
 
     companion object {
         private const val KINTO_ENDPOINT_PROD = "https://firefox.settings.services.mozilla.com/v1"
+        private var instance: FenixApplication? = null
+        fun applicationContext() : Context {
+            return instance!!.applicationContext
+        }
     }
 
     override fun getWorkManagerConfiguration() = Builder().setMinimumLoggingLevel(INFO).build()

@@ -25,8 +25,8 @@ android {
         applicationId "com.sst"
         minSdkVersion Config.minSdkVersion
         targetSdkVersion Config.targetSdkVersion
-        versionCode 3
-        versionName "2.0.0"
+        versionCode 1
+        versionName "1.0.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -66,13 +66,11 @@ android {
         debug {
             shrinkResources false
             minifyEnabled false
-            applicationIdSuffix ".sealegacy.blue"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled true
         }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".sealegacy.blue"
             def deepLinkSchemeValue = "sealegacy.blue"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders = [
@@ -109,6 +107,15 @@ android {
 
     flavorDimensions "engine"
 
+    productFlavors {
+        sealegacyBlue {
+            versionCode 3
+            versionName "2.0.0"
+            applicationIdSuffix ".sealegacy.blue"
+            def deepLinkSchemeValue = "sealegacy.blue"
+        }
+    }
+
     sourceSets {
         androidTest {
             resources.srcDirs += ['src/androidTest/resources']
@@ -119,6 +126,11 @@ android {
         release {
             java.srcDirs = ['src/migration/java', 'src/geckoRelease/java']
             manifest.srcFile "src/migration/AndroidManifest.xml"
+        }
+        sealegacyBlue {
+            res {
+                srcDirs 'src/sealegacyBlue/res'
+            }
         }
     }
 

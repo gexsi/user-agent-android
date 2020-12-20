@@ -11,6 +11,7 @@ import androidx.core.net.toUri
 import mozilla.components.support.ktx.android.content.appVersionName
 import mozilla.components.support.ktx.android.content.getColorFromAttr
 import org.mozilla.fenix.BuildConfig
+import org.mozilla.fenix.FenixApplication
 import org.mozilla.fenix.IntentReceiverActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.account.AuthIntentReceiverActivity
@@ -105,8 +106,8 @@ object SupportUtils {
     fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
 //        val path = page.path
 //        val langTag = getLanguageTag(locale)
-        // Find a way to get the following link from strings.
-        return "https://sealegacy.blue-search.org/privacy-policy.php"
+//        return "https://www.mozilla.org/$langTag/$path"
+        return FenixApplication.applicationContext().getString(R.string.privacy_policy)
     }
     // Gexsi end
 
