@@ -71,8 +71,7 @@ android {
         }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            def deepLinkSchemeValue = "sealegacy.blue"
-            buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
+            def deepLinkSchemeValue = buildConfigFields['DEEP_LINK_SCHEME']?.value ?: ""
             manifestPlaceholders = [
                     // This release type is meant to replace Firefox (Release channel) and therefore needs to inherit
                     // its sharedUserId for all eternity. See:
@@ -113,13 +112,13 @@ android {
             versionCode 3
             versionName "2.0.0"
             applicationIdSuffix ".sealegacy.blue"
-            def deepLinkSchemeValue = "sealegacy.blue"
+            buildConfigField "String", "DEEP_LINK_SCHEME", "\"sealegacy.blue\""
         }
         gexsi {
             versionCode 1
             versionName "1.0.0"
             applicationIdSuffix ".sealegacy.blue"
-            def deepLinkSchemeValue = "sealegacy.blue"
+            buildConfigField "String", "DEEP_LINK_SCHEME", "\"sealegacy.blue\""
         }
     }
     // Gexsi end

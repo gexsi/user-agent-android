@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "264376387490",
+    "firebase_url": "https://blue-99ff7.firebaseio.com",
+    "project_id": "blue-99ff7",
+    "storage_bucket": "blue-99ff7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264376387490:android:ec7a1eaa5eadf350f954fb",
+        "android_client_info": {
+          "package_name": "com.sst.blue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264376387490-8ubn2b6kvc6pv4e1quj2ssbsbd8ud7bt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6QqvU9c_Pk-GMc394H5jf1yPE3RLpgew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264376387490-8ubn2b6kvc6pv4e1quj2ssbsbd8ud7bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264376387490-crc44a85flk5hd4f1qp8ciendjrdbkeu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": ".com.gexsi.oceana.blue"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264376387490:android:93d82719ea3b4ab3f954fb",
+        "android_client_info": {
+          "package_name": "com.sst.oceana.blue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264376387490-8ubn2b6kvc6pv4e1quj2ssbsbd8ud7bt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6QqvU9c_Pk-GMc394H5jf1yPE3RLpgew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264376387490-8ubn2b6kvc6pv4e1quj2ssbsbd8ud7bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264376387490-crc44a85flk5hd4f1qp8ciendjrdbkeu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": ".com.gexsi.oceana.blue"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264376387490:android:c18dc985e1def0eff954fb",
+        "android_client_info": {
+          "package_name": "com.sst.sealegacy.blue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264376387490-8ubn2b6kvc6pv4e1quj2ssbsbd8ud7bt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6QqvU9c_Pk-GMc394H5jf1yPE3RLpgew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264376387490-8ubn2b6kvc6pv4e1quj2ssbsbd8ud7bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "264376387490-crc44a85flk5hd4f1qp8ciendjrdbkeu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": ".com.gexsi.oceana.blue"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
