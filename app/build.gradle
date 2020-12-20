@@ -107,6 +107,7 @@ android {
 
     flavorDimensions "engine"
 
+    // Gexsi begin: add flavors
     productFlavors {
         sealegacyBlue {
             versionCode 3
@@ -114,7 +115,14 @@ android {
             applicationIdSuffix ".sealegacy.blue"
             def deepLinkSchemeValue = "sealegacy.blue"
         }
+        gexsi {
+            versionCode 1
+            versionName "1.0.0"
+            applicationIdSuffix ".sealegacy.blue"
+            def deepLinkSchemeValue = "sealegacy.blue"
+        }
     }
+    // Gexsi end
 
     sourceSets {
         androidTest {
@@ -127,11 +135,18 @@ android {
             java.srcDirs = ['src/migration/java', 'src/geckoRelease/java']
             manifest.srcFile "src/migration/AndroidManifest.xml"
         }
+        // Gexsi begin: add sourceSets for flavors
         sealegacyBlue {
             res {
                 srcDirs 'src/sealegacyBlue/res'
             }
         }
+        gexsi {
+            res {
+                srcDirs 'src/gexsi/res'
+            }
+        }
+        // Gexsi end
     }
 
     /* Gexsi begin: disable release valiants

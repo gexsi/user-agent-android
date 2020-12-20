@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- brand start -->
+    <!-- App what's new url -->
+    <string name="whats_new_url">https://gexsi.com/about/projekte/</string>
+    <!-- App privacy policy url -->
+    <string name="privacy_policy">https://gexsi.com/about/datenschutz/</string>
+    <!-- App FAQ url -->
+    <string name="faq"></string>
+    <!-- App Terms of use url -->
+    <string name="terms_of_use">https://gexsi.com/about/nutzungsbedingungen/</string>
+    <!-- App Contact url -->
+    <string name="contact">https://gexsi.com/about/kontakt/</string>
+
     <!-- App name for private browsing mode. The first parameter is the name of the app defined in app_name (for example: Fenix)-->
     <string name="app_name_private_5">%s privat</string>
     <!-- App name for private browsing mode. The first parameter is the name of the app defined in app_name (for example: Fenix)-->
@@ -62,8 +74,8 @@
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="private_browsing_placeholder_description_2">%1$s leert die eingegebenen Suchbegriffe und besuchten Webseiten aller privaten Tabs wenn Sie diese schließen oder die App beenden. Das macht Sie gegenüber Website-Betreibern und Internetanbietern nicht anonym, aber erleichtert es Ihnen, dass andere Nutzer dieses Geräts Ihre Aktivitäten nicht einsehen können.</string>
     <string name="private_browsing_common_myths">
-
-
+       
+       
     Häufige Missverständnisse über das Surfen im Privaten Modus</string>
     <!-- Delete session button to erase your history in a private session -->
     <string name="private_browsing_delete_session">Sitzung löschen</string>
@@ -195,7 +207,7 @@
     <!-- Text for default locale item -->
     <string name="default_locale_text">Gerätesprache beachten</string>
     <!-- Placeholder text shown in the search bar before a user enters text -->
-    <string name="locale_search_hint">Sprache suchen</string>
+    <string name="locale_search_hint">Suchen und Gutes tun</string>
 
     <!-- Search Fragment -->
     <!-- Button in the search view that lets a user search by scanning a QR code -->
@@ -669,9 +681,9 @@
     <!-- Hint for adding name of a collection -->
     <string name="collection_name_hint">Name der Sammlung</string>
     <!-- Text for the menu button to rename a top site -->
-    <string name="rename_top_site">Umbenennen</string>
-    <!-- Text for the menu button to remove a top site -->
-    <string name="remove_top_site">Entfernen</string>
+	<string name="rename_top_site">Umbenennen</string>
+	<!-- Text for the menu button to remove a top site -->
+	<string name="remove_top_site">Entfernen</string>
 
     <!-- Text for the menu button to delete a top site from history -->
     <string name="delete_from_history">Aus Chronik löschen</string>
@@ -1169,7 +1181,7 @@
     <string name="onboarding_fxa_section_header">Haben Sie schon ein Konto?</string>
     <!-- text for the Firefox Preview feature section header
     The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_feature_section_header">%s kennenlernen</string>
+    <string name="onboarding_feature_section_header">Wir sind ein Social Business, das dem Gemeinwohl verpflichtet ist.</string>
     <!-- text for the "What's New" onboarding card header -->
     <string name="onboarding_whats_new_header1">Sehen Sie sich an, was es Neues gibt</string>
     <!-- text for the "what's new" onboarding card description
@@ -1425,10 +1437,10 @@
     <string name="browser_toolbar_long_press_popup_paste_and_go">Einfügen &amp; Los</string>
     <!-- Paste the text in the clipboard -->
     <string name="browser_toolbar_long_press_popup_paste">Einfügen</string>
-
+  
     <!-- Snackbar message shown after an URL has been copied to clipboard. -->
     <string name="browser_toolbar_url_copied_to_clipboard_snackbar">URL in Zwischenablage kopiert</string>
-
+  
     <!-- Title text for the Add To Homescreen dialog -->
     <string name="add_to_homescreen_title">Zum Startbildschirm hinzufügen</string>
     <!-- Cancel button text for the Add to Homescreen dialog -->
@@ -1700,13 +1712,13 @@
     <string name="top_sites_toggle_top_frecent_sites">Meistbesuchte Seiten anzeigen</string>
 
     <!-- Title text displayed in the rename top site dialog. -->
-    <string name="top_sites_rename_dialog_title">Name</string>
-    <!-- Hint for renaming title of a top site -->
-    <string name="top_site_name_hint">Name der meistbesuchten Seite</string>
-    <!-- Button caption to confirm the renaming of the top site. -->
-    <string name="top_sites_rename_dialog_ok">OK</string>
-    <!-- Dialog button text for canceling the rename top site prompt. -->
-    <string name="top_sites_rename_dialog_cancel">Abbrechen</string>
+	<string name="top_sites_rename_dialog_title">Name</string>
+	<!-- Hint for renaming title of a top site -->
+	<string name="top_site_name_hint">Name der meistbesuchten Seite</string>
+	<!-- Button caption to confirm the renaming of the top site. -->
+	<string name="top_sites_rename_dialog_ok">OK</string>
+	<!-- Dialog button text for canceling the rename top site prompt. -->
+	<string name="top_sites_rename_dialog_cancel">Abbrechen</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Entfernen</string>
@@ -1727,4 +1739,4 @@
     <!-- Deprecated: Describes the add to homescreen functionality -->
     <string name="add_to_homescreen_description">Sie können diese Website einfach zum Startbildschirm Ihres Handys hinzufügen, um unmittelbaren Zugriff darauf zu haben und sie wie eine App zu nutzen.</string>
 
-</resources>
+    </resources>
