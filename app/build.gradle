@@ -25,7 +25,7 @@ android {
         applicationId "com.sst"
         minSdkVersion Config.minSdkVersion
         targetSdkVersion Config.targetSdkVersion
-        versionCode 32
+        versionCode 35
         versionName "2.0.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -122,7 +122,6 @@ android {
         }
     }
 
-    /* Gexsi begin: disable release valiants
     splits {
         abi {
             enable true
@@ -132,7 +131,6 @@ android {
             include "x86", "armeabi-v7a", "arm64-v8a", "x86_64"
         }
     }
-    Gexsi end */
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
