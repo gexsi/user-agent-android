@@ -109,8 +109,8 @@ android {
     // Gexsi begin: add flavors
     productFlavors {
         sealegacyBlue {
-            versionCode 3
-            versionName "2.0.0"
+            versionCode 38
+            versionName "2.0.1"
             applicationIdSuffix ".sealegacy.blue"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"sealegacy.blue\""
             buildConfigField "String[]", "SUPPORTED_LOCALE_ARRAY", "new String[]{\"en-US\"}"
