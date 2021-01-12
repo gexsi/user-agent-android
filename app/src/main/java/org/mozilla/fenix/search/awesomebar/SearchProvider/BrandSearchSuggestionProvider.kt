@@ -96,12 +96,12 @@ class BrandSearchSuggestionProvider private constructor(
     @Suppress("ComplexMethod")
     private fun createMultipleSuggestions(text: String, result: List<String>?): List<AwesomeBar.Suggestion> {
         val suggestions = mutableListOf<AwesomeBar.Suggestion>()
-
+        val id = UUID.randomUUID().toString()
         result?.distinct()?.forEachIndexed { index, item ->
             suggestions.add(AwesomeBar.Suggestion(
                     provider = this,
                     // We always use the same ID for the entered text so that this suggestion gets replaced "in place".
-                    id = if (item == text) ID_OF_ENTERED_TEXT else item,
+                    id = id + "_" + index.toString(), // if (item == text) ID_OF_ENTERED_TEXT else item,
                     title = item,
                     description = null,
                     // Don't show an autocomplete arrow for the entered text

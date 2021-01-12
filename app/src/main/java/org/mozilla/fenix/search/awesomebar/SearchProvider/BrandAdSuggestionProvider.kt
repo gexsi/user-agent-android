@@ -17,7 +17,6 @@ import mozilla.components.concept.fetch.Client
 import mozilla.components.concept.fetch.Request
 import mozilla.components.concept.fetch.isSuccess
 import mozilla.components.feature.awesomebar.provider.SearchSuggestionProvider
-import mozilla.components.feature.search.SearchUseCases
 import mozilla.components.feature.session.SessionUseCases
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.kotlin.sanitizeURL
@@ -102,16 +101,16 @@ class BrandAdSearchSuggestionProvider private constructor(
         }
     }
 
-    @Suppress("ComplexMethod")
+    @Suppress("ComplexMethod", "UNUSED_PARAMETER")
     private fun createMultipleSuggestions(text: String, result: List<AdSuggestion>?): List<AwesomeBar.Suggestion> {
         val suggestions = mutableListOf<AwesomeBar.Suggestion>()
-
+        val id = UUID.randomUUID().toString()
         result?.distinct()?.forEachIndexed { index, item ->
             if (item.title != null && item.url != null) {
                 suggestions.add(AwesomeBar.Suggestion(
                         provider = this,
                         // We always use the same ID for the entered text so that this suggestion gets replaced "in place".
-                        id = if (item.title == text) ID_OF_ENTERED_TEXT else item.title,
+                        id = id + "_" + index.toString(), //if (item.title == text) ID_OF_ENTERED_TEXT else item.title,
                         title = item.title,
                         description = item.description,
                         // Don't show an autocomplete arrow for the entered text
