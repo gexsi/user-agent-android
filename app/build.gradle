@@ -118,8 +118,15 @@ android {
         gexsi {
             versionCode 1
             versionName "1.0.0"
-            applicationIdSuffix ".blue"
-            buildConfigField "String", "DEEP_LINK_SCHEME", "\"blue\""
+            applicationIdSuffix ".gexsi"
+            buildConfigField "String", "DEEP_LINK_SCHEME", "\"gexsi\""
+            buildConfigField "String[]", "SUPPORTED_LOCALE_ARRAY", "new String[]{\"en-US\", \"de\"}"
+        }
+        panda {
+            versionCode 1
+            versionName "1.0.0"
+            applicationIdSuffix ".panda"
+            buildConfigField "String", "DEEP_LINK_SCHEME", "\"panda\""
             buildConfigField "String[]", "SUPPORTED_LOCALE_ARRAY", "new String[]{\"en-US\", \"de\"}"
         }
     }
@@ -145,6 +152,11 @@ android {
         gexsi {
             res {
                 srcDirs 'src/gexsi/res'
+            }
+        }
+        panda {
+            res {
+                srcDirs 'src/panda/res'
             }
         }
         // Gexsi end

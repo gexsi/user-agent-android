@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "15466585243",
+    "firebase_url": "https://wwf-panda-search-aa1d0.firebaseio.com",
+    "project_id": "wwf-panda-search-aa1d0",
+    "storage_bucket": "wwf-panda-search-aa1d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15466585243:android:93dd9a9059832430053a3e",
+        "android_client_info": {
+          "package_name": "com.sst.panda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15466585243-16aare2sp3gvu36d575e38jbg9tv8e5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7HRq3yPhiWrfGaDuRTHp4ne9SxEtMyk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15466585243-16aare2sp3gvu36d575e38jbg9tv8e5f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "15466585243-vd6tvcmm43tk4hh8qndmkpu2dmk2uci3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gexsi.panda.search",
+                "app_store_id": "1492619036"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

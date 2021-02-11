@@ -171,7 +171,7 @@ class SearchWidgetProvider : AppWidgetProvider() {
                         context,
                         R.drawable.ic_widget_icon
                 )?.mutate()?.apply {
-                    setTint(ContextCompat.getColor(context, R.color.app_secondary_color))
+//                    setTint(ContextCompat.getColor(context, R.color.app_secondary_color))
                 }?.toBitmap())
         // Gexsi end
     }

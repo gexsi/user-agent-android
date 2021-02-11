@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- brand start -->
+    <!-- App what's new url -->
+    <string name="whats_new_url">https://panda-search.org/#mehr</string>
+    <!-- App privacy policy url -->
+    <string name="privacy_policy">https://panda-search.org/datenschutz.php</string>
+    <!-- App FAQ url -->
+    <string name="faq">https://panda-search.org/#faq</string>
+    <!-- App Terms of use url -->
+    <string name="terms_of_use">https://panda-search.org/nutzungsbedingungen.php</string>
+    <!-- App Contact url -->
+    <string name="contact">https://panda-search.org/kontakt.php</string>
+
+    <!-- Placeholder text shown in the search bar before a user enters text -->
+    <string name="search_hint">Suchen und Gutes tun…</string>
+
+    <!-- text for the Firefox Preview feature section header
+        The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <string name="onboarding_feature_section_header">Wir sind ein Social Business, das dem Gemeinwohl verpflichtet ist.</string>
+    </resources>

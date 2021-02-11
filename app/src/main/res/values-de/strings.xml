@@ -226,7 +226,7 @@
     <!-- Text preview for smaller sized widgets -->
     <string name="search_widget_text_short">Suchen</string>
     <!-- Text preview for larger sized widgets -->
-    <string name="search_widget_text_long">Das Web durchsuchen</string>
+    <string name="search_widget_text_long">@string/search_hint</string>
 
     <!-- Content description (not visible, for screen readers etc.): Voice search -->
     <string name="search_widget_voice">Sprachsuche</string>
