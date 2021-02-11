@@ -20,6 +20,11 @@ import mozilla.components.feature.awesomebar.provider.SearchSuggestionProvider
 import mozilla.components.feature.session.SessionUseCases
 import mozilla.components.support.base.log.logger.Logger
 import mozilla.components.support.ktx.kotlin.sanitizeURL
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.Response
+import okhttp3.Request as OKRequest
 import java.io.IOException
 import java.net.URL
 import java.util.*
@@ -32,11 +37,19 @@ import java.util.concurrent.TimeUnit
  */
 @Suppress("LongParameterList")
 class BrandAdSearchSuggestionProvider private constructor(
-        @VisibleForTesting internal val client: BrandSearchSuggestionClient,
-        private val loadUrlUseCase: SessionUseCases.LoadUrlUseCase,
-        @VisibleForTesting internal val engine: Engine? = null,
+    @VisibleForTesting internal val client: BrandSearchSuggestionClient,
+    private val loadUrlUseCase: SessionUseCases.LoadUrlUseCase,
+    @VisibleForTesting internal val engine: Engine? = null,
 ) : AwesomeBar.SuggestionProvider {
     override val id: String = UUID.randomUUID().toString()
+
+    class ResponseCallback: Callback {
+        override fun onFailure(call: Call, e: IOException) {}
+        override fun onResponse(call: Call, response: Response) {}
+    }
+
+    private val okHttpClient = OkHttpClient()
+    private val callback = ResponseCallback()
 
     /**
      * Creates a [SearchSuggestionProvider] using the default engine as returned by the provided
@@ -49,15 +62,20 @@ class BrandAdSearchSuggestionProvider private constructor(
      * @param icon The image to display next to the result. If not specified, the engine icon is used.
      */
     constructor(
-            context: Context,
-            defaultSearchEngineProvider: DefaultSearchEngineProvider,
-            loadUrlUseCase: SessionUseCases.LoadUrlUseCase,
-            fetchClient: Client,
-            engine: Engine? = null,
+        context: Context,
+        defaultSearchEngineProvider: DefaultSearchEngineProvider,
+        loadUrlUseCase: SessionUseCases.LoadUrlUseCase,
+        fetchClient: Client,
+        engine: Engine? = null,
     ) : this(
-            BrandSearchSuggestionClient(context, defaultSearchEngineProvider) { url -> fetch(fetchClient, url) },
-            loadUrlUseCase,
-            engine,
+        BrandSearchSuggestionClient(context, defaultSearchEngineProvider) { url ->
+            fetch(
+                fetchClient,
+                url
+            )
+        },
+        loadUrlUseCase,
+        engine,
     )
 
     @Suppress("ReturnCount")
@@ -67,9 +85,24 @@ class BrandAdSearchSuggestionProvider private constructor(
         }
         val suggestions = fetchSuggestions(text)
 
+        callImpressionsURLs(suggestions)
+
         return createMultipleSuggestions(text, suggestions).also {
             // Call speculativeConnect for URL of first (highest scored) suggestion
             it.firstOrNull()?.title?.let { searchTerms -> maybeCallSpeculativeConnect(searchTerms) }
+        }
+    }
+
+    private fun callImpressionsURLs(suggestions: List<AdSuggestion>?) {
+        if (suggestions == null) return
+
+        for (item in suggestions) {
+            item.impressionURL?.let {
+                val request = OKRequest.Builder()
+                        .url(it)
+                        .build()
+                okHttpClient.newCall(request).enqueue(callback)
+            }
         }
     }
 
@@ -108,18 +141,18 @@ class BrandAdSearchSuggestionProvider private constructor(
         result?.distinct()?.forEachIndexed { index, item ->
             if (item.title != null && item.url != null) {
                 suggestions.add(AwesomeBar.Suggestion(
-                        provider = this,
-                        // We always use the same ID for the entered text so that this suggestion gets replaced "in place".
-                        id = id + "_" + index.toString(), //if (item.title == text) ID_OF_ENTERED_TEXT else item.title,
-                        title = item.title,
-                        description = item.description,
-                        // Don't show an autocomplete arrow for the entered text
-                        editSuggestion = null,
-                        icon = getBitmapFromURL(item.imageUrl),
-                        score = Int.MIN_VALUE - (index + 1),
-                        onSuggestionClicked = {
-                            loadUrlUseCase.invoke(item.url)
-                        }
+                    provider = this,
+                    // We always use the same ID for the entered text so that this suggestion gets replaced "in place".
+                    id = id + "_" + index.toString(), //if (item.title == text) ID_OF_ENTERED_TEXT else item.title,
+                    title = item.title,
+                    description = item.description,
+                    // Don't show an autocomplete arrow for the entered text
+                    editSuggestion = null,
+                    icon = getBitmapFromURL(item.imageUrl),
+                    score = Int.MIN_VALUE - (index + 1),
+                    onSuggestionClicked = {
+                        loadUrlUseCase.invoke(item.url)
+                    }
                 ))
             }
         }
@@ -140,9 +173,9 @@ class BrandAdSearchSuggestionProvider private constructor(
         private fun fetch(fetchClient: Client, url: String): String? {
             try {
                 val request = Request(
-                        url = url.sanitizeURL(),
-                        readTimeout = Pair(READ_TIMEOUT_IN_MS, TimeUnit.MILLISECONDS),
-                        connectTimeout = Pair(CONNECT_TIMEOUT_IN_MS, TimeUnit.MILLISECONDS)
+                    url = url.sanitizeURL(),
+                    readTimeout = Pair(READ_TIMEOUT_IN_MS, TimeUnit.MILLISECONDS),
+                    connectTimeout = Pair(CONNECT_TIMEOUT_IN_MS, TimeUnit.MILLISECONDS)
                 )
 
                 val response = fetchClient.fetch(request)
