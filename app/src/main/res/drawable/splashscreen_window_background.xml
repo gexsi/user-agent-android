@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <color android:color="@color/default_launcher_background"/>
+        <color android:color="@color/splash_screen_background"/>
     </item>
 
     <item android:drawable="@drawable/ic_launcher_foreground"

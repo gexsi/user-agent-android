@@ -401,6 +401,7 @@
     <color name="debug_launcher_background">@color/default_launcher_background</color>
     <color name="ic_launcher_background">@color/default_launcher_background</color>
     <color name="ic_launcher_private_background">@color/default_launcher_background</color>
+    <color name="splash_screen_background">#FFFFFF</color>
 
     <!--  App Secondary color  -->
     <color name="app_secondary_color">@color/photonGreen50</color>
