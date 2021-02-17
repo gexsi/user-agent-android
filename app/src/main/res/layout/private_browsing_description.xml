@@ -21,7 +21,7 @@
         android:paddingTop="4dp"
         android:scrollHorizontally="false"
         android:textAlignment="viewStart"
-        android:textColor="?primaryText"
+        android:textColor="@color/private_mode_message_color"
         android:textDirection="locale"
         android:textSize="14sp"
         tools:text="@string/private_browsing_placeholder_description_2" />

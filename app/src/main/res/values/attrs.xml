@@ -35,6 +35,7 @@
     <attr name="privateBrowsingButtonBackground" format="reference" />
     <attr name="privateBrowsingButtonAccent" format="reference" />
     <attr name="fenixLogo" format="reference" />
+    <attr name="fenixLogoAbout" format="reference" />
     <attr name="fenixSnackbarBackground" format="reference" />
     <attr name="toolbarStartGradient" format="reference"/>
     <attr name="toolbarCenterGradient" format="reference"/>

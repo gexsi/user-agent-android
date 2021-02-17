@@ -24,17 +24,7 @@ import org.mozilla.fenix.home.sessioncontrol.viewholders.NoCollectionsMessageVie
 import org.mozilla.fenix.home.sessioncontrol.viewholders.PrivateBrowsingDescriptionViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.TabInCollectionViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.TopSitePagerViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingAutomaticSignInViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingFinishViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingHeaderViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingManualSignInViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingPrivacyNoticeViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingPrivateBrowsingViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingSectionHeaderViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingThemePickerViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingToolbarPositionPickerViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingTrackingProtectionViewHolder
-import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.OnboardingWhatsNewViewHolder
+import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.*
 import org.mozilla.fenix.home.tips.ButtonTipViewHolder
 import mozilla.components.feature.tab.collections.Tab as ComponentTab
 
@@ -94,6 +84,13 @@ sealed class AdapterItem(@LayoutRes val viewType: Int) {
     ) : AdapterItem(OnboardingSectionHeaderViewHolder.LAYOUT_ID) {
         override fun sameAs(other: AdapterItem) =
             other is OnboardingSectionHeader && labelBuilder == other.labelBuilder
+    }
+
+    data class OnboardingSectionMessage(
+        val labelBuilder: (Context) -> String
+    ) : AdapterItem(OnboardingSectionMessageViewHolder.LAYOUT_ID) {
+        override fun sameAs(other: AdapterItem) =
+            other is OnboardingSectionMessage && labelBuilder == other.labelBuilder
     }
 
     // Gexsi begin: disable authentication
@@ -173,6 +170,7 @@ class SessionControlAdapter(
             )
             OnboardingHeaderViewHolder.LAYOUT_ID -> OnboardingHeaderViewHolder(view)
             OnboardingSectionHeaderViewHolder.LAYOUT_ID -> OnboardingSectionHeaderViewHolder(view)
+            OnboardingSectionMessageViewHolder.LAYOUT_ID -> OnboardingSectionMessageViewHolder(view)
             OnboardingAutomaticSignInViewHolder.LAYOUT_ID -> OnboardingAutomaticSignInViewHolder(
                 view
             )
@@ -222,7 +220,9 @@ class SessionControlAdapter(
             is OnboardingSectionHeaderViewHolder -> holder.bind(
                 (item as AdapterItem.OnboardingSectionHeader).labelBuilder
             )
-
+            is OnboardingSectionMessageViewHolder -> holder.bind(
+                (item as AdapterItem.OnboardingSectionMessage).labelBuilder
+            )
             // Gexsi begin: disable authentication
 //            is OnboardingManualSignInViewHolder -> holder.bind()
 //            is OnboardingAutomaticSignInViewHolder -> holder.bind(

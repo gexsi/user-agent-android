@@ -17,5 +17,8 @@
 
     <!-- text for the Firefox Preview feature section header
         The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_feature_section_header">Wir sind ein Social Business, das dem Gemeinwohl verpflichtet ist.</string>
-    </resources>
+    <string name="onboarding_feature_section_header">Suchen und den WWF unterstützen</string>
+    <!-- text for the Firefox Preview feature section message
+        The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <string name="onboarding_feature_section_message">Panda ist eine Suchmaschine, die sich für eine bessere Welt einsetzt. Deine Suchanfragen generieren Einnahmen. Mit diesen unterstützt du Projekte und Kampagnen des WWF.</string>
+</resources>

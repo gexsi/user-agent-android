@@ -43,7 +43,7 @@
     <color name="synced_tabs_separator_light_theme">@color/photonLightGrey30</color>
     <!-- Gexsi begin: home background -->
 <!--    <color name="top_site_title_text_light_theme">@color/photonDarkGrey10</color>-->
-    <color name="top_site_title_text_light_theme">@color/white_color</color>
+    <color name="top_site_title_text_light_theme">@color/dark_grey_90</color>
     <!-- Gexsi end -->
     <color name="collection_icon_color_violet_light_theme">#7542E5</color>
     <color name="collection_icon_color_blue_light_theme">#0250BB</color>
@@ -116,7 +116,10 @@
     <color name="synced_tabs_separator_dark_theme">@color/photonDarkGrey10</color>
     <!-- Gexsi begin: home background -->
 <!--    <color name="top_site_title_text_dark_theme">@color/photonLightGrey60</color>-->
-    <color name="top_site_title_text_dark_theme">#F9F9FB</color>
+    <color name="top_site_title_text_dark_theme">@color/dark_grey_90</color>
+    <color name="collections_text_color">@color/dark_grey_90</color>
+    <color name="private_mode_message_color">@color/white_color</color>
+    <color name="onboarding_message_color">@color/white_color</color>
     <!-- Gexsi end -->
     <color name="collection_icon_color_violet_dark_theme">#AB71FF</color>
     <color name="collection_icon_color_blue_dark_theme">#00B3F4</color>
@@ -367,7 +370,8 @@
 
     <!-- Misc colors applied universally-->
     <color name="suggestion_highlight_color">#5C592ACB</color>
-    <color name="private_browsing_button_accent_color">@color/foundation_private_theme</color>
+    <color name="private_browsing_button_accent_color">#FFFFFF</color>
+    <color name="private_browsing_button_background_color">@color/photonGrey60</color>
     <color name="white_color">#FBFBFE</color>
     <color name="dark_grey_90">#15141A</color>
     <color name="neutral_text">@color/white_color</color>

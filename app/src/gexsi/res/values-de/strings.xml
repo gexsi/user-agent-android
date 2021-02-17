@@ -17,5 +17,8 @@
 
     <!-- text for the Firefox Preview feature section header
         The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_feature_section_header">Wir sind ein Social Business, das dem Gemeinwohl verpflichtet ist.</string>
+    <string name="onboarding_feature_section_header">Die Suchmaschine für eine bessere Welt</string>
+    <!-- text for the Firefox Preview feature section message
+    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <string name="onboarding_feature_section_message">Wir sind ein Sozialunternehmen, das dem Gemeinwohl verpflichtet ist. Deine Suchanfragen generieren Einnahmen. Mit diesen unterstützen wir Projekte, die die Welt positiv verändern.</string>
     </resources>

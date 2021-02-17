@@ -18,5 +18,8 @@
 
     <!-- text for the Firefox Preview feature section header
         The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_feature_section_header">We are a social business, 100% non-profit.</string>
+    <string name="onboarding_feature_section_header">The search engine for a better world.</string>
+    <!-- text for the Firefox Preview feature section message
+        The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <string name="onboarding_feature_section_message">Gexsi is a purpose-driven search engine. Your search requests generate revenues. We use these revenues to support projects which positively change the world</string>
 </resources>

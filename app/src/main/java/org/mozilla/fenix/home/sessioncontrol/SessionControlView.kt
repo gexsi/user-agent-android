@@ -94,6 +94,9 @@ private fun onboardingAdapterItems(): List<AdapterItem> {
         listOf(
             AdapterItem.OnboardingSectionHeader {
                 it.getString(R.string.onboarding_feature_section_header)
+            },
+            AdapterItem.OnboardingSectionMessage {
+                it.getString(R.string.onboarding_feature_section_message)
             }
             /* Gexsi begin: disable other onboarding options
             AdapterItem.OnboardingTrackingProtection,

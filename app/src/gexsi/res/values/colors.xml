@@ -5,7 +5,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Launcher Icon colors -->
     <color name="default_launcher_background">#00C0BD</color>
-    <color name="splash_screen_background">#c8c8c8</color>
+    <color name="splash_screen_background">#FFFFFF</color>
+    <color name="private_browsing_button_accent_color">@color/default_launcher_background</color>
+    <color name="private_mode_message_color">@color/dark_grey_90</color>
+    <color name="onboarding_message_color">@color/dark_grey_90</color>
 
     <!--  App Secondary color  -->
     <color name="app_secondary_color">#00C0BD</color>

@@ -1170,6 +1170,7 @@
     <!-- text for the Firefox Preview feature section header
     The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="onboarding_feature_section_header">%s kennenlernen</string>
+    <string name="onboarding_feature_section_message"></string>
     <!-- text for the "What's New" onboarding card header -->
     <string name="onboarding_whats_new_header1">Sehen Sie sich an, was es Neues gibt</string>
     <!-- text for the "what's new" onboarding card description
