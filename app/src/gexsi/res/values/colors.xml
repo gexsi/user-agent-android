@@ -6,7 +6,7 @@
     <!-- Launcher Icon colors -->
     <color name="app_icon_background">@color/white_color</color>
     <color name="default_launcher_background">#00C0BD</color>
-    <color name="splash_screen_background">@color/white_color</color>
+    <color name="splash_screen_background">@color/default_launcher_background</color>
     <color name="private_browsing_button_accent_color">@color/default_launcher_background</color>
     <color name="private_mode_message_color">@color/dark_grey_90</color>
     <color name="onboarding_message_color">@color/dark_grey_90</color>
