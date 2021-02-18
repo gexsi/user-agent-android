@@ -4,6 +4,7 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Launcher Icon colors -->
+    <color name="app_icon_background">@color/white_color</color>
     <color name="default_launcher_background">#00C0BD</color>
     <color name="splash_screen_background">#FFFFFF</color>
     <color name="private_browsing_button_accent_color">@color/default_launcher_background</color>

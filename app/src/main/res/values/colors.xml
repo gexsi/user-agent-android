@@ -400,10 +400,11 @@
     <color name="device_foreground">#20123A</color>
 
     <!-- Launcher Icon colors -->
+    <color name="app_icon_background">#FFFFFF</color>
     <color name="default_launcher_background">@color/photonRed50</color>
     <color name="nightly_launcher_background">@color/default_launcher_background</color>
-    <color name="debug_launcher_background">@color/default_launcher_background</color>
-    <color name="ic_launcher_background">@color/default_launcher_background</color>
+    <color name="debug_launcher_background">@color/app_icon_background</color>
+    <color name="ic_launcher_background">@color/app_icon_background</color>
     <color name="ic_launcher_private_background">@color/default_launcher_background</color>
     <color name="splash_screen_background">#FFFFFF</color>
 

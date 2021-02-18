@@ -5,6 +5,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Launcher Icon colors -->
     <color name="default_launcher_background">#3975B7</color>
+    <color name="app_icon_background">@color/default_launcher_background</color>
     <color name="splash_screen_background">@color/default_launcher_background</color>
 
     <!--  App Secondary color  -->

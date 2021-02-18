@@ -14,7 +14,7 @@
     <string name="contact">https://gexsi.com/about/en/contact/</string>
 
     <!-- Placeholder text shown in the search bar before a user enters text -->
-    <string name="search_hint">Search and do good</string>
+    <string name="search_hint">Search and do good...</string>
 
     <!-- text for the Firefox Preview feature section header
         The first parameter is the name of the app (e.g. Firefox Preview) -->
