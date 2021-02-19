@@ -144,7 +144,7 @@ android {
     // Gexsi begin: add flavors
     productFlavors {
         sealegacyBlue {
-            versionCode 39
+            versionCode 42
             versionName "2.0.2"
             applicationIdSuffix ".sealegacy.blue"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"sealegacy.blue\""
@@ -152,7 +152,7 @@ android {
             buildTypes.release.signingConfig signingConfigs.sealegacyBlueConfig
         }
         gexsi {
-            versionCode 29
+            versionCode 32
             versionName "3.0.0"
             applicationIdSuffix ".gexsi"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"gexsi\""
@@ -160,7 +160,7 @@ android {
             buildTypes.release.signingConfig signingConfigs.gexsiConfig
         }
         panda {
-            versionCode 31
+            versionCode 34
             versionName "2.0.2"
             applicationIdSuffix ".panda"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"panda\""
